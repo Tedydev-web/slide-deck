@@ -45,6 +45,7 @@ const terminalLines: TerminalLine[] = [
 const CHAR_DELAY_MS = 24       // per-character cadence (faster than S26 for snappier demo)
 const INTER_LINE_PAUSE_MS = 180 // pause between lines
 const AUTO_START_DELAY_MS = 650 // wait for entrance stagger before typewriter kicks in
+const LOOP_PAUSE_MS = 2500     // how long to hold the done state before looping back
 
 export default function Slide27DemoDevBugFix() {
   // -1 = not started, 0..5 = currently typing that line, 6 = done
@@ -54,6 +55,7 @@ export default function Slide27DemoDevBugFix() {
   const intervalRef = useRef<number | null>(null)
   const pauseRef = useRef<number | null>(null)
   const startRef = useRef<number | null>(null)
+  const loopRef = useRef<number | null>(null)
 
   const isDone = lineIndex >= terminalLines.length
   const isRunning = lineIndex >= 0 && !isDone
@@ -64,7 +66,7 @@ export default function Slide27DemoDevBugFix() {
   const iActive = lineIndex >= 4
   const phaseFlags: Record<PhaseCode, boolean> = { R: rActive, P: pActive, I: iActive }
 
-  // Clear all timers
+  // Clear all timers (used in cleanup)
   const clearTimers = () => {
     if (intervalRef.current !== null) {
       clearInterval(intervalRef.current)
@@ -78,6 +80,10 @@ export default function Slide27DemoDevBugFix() {
       clearTimeout(startRef.current)
       startRef.current = null
     }
+    if (loopRef.current !== null) {
+      clearTimeout(loopRef.current)
+      loopRef.current = null
+    }
   }
 
   // Cleanup on unmount — prevents setState on unmounted component if
@@ -86,16 +92,37 @@ export default function Slide27DemoDevBugFix() {
     return clearTimers
   }, [])
 
-  // Auto-start on mount: wait for entrance stagger to settle, then kick off
-  // the typewriter at line 0.
+  // Auto-start OR loop-restart: whenever lineIndex === -1 (initial or post-loop
+  // reset), schedule a delayed start at line 0. The typewriter effect takes
+  // over from there.
   useEffect(() => {
+    if (lineIndex !== -1) return
     startRef.current = window.setTimeout(() => {
       setLineIndex(0)
     }, AUTO_START_DELAY_MS)
     return () => {
-      if (startRef.current !== null) clearTimeout(startRef.current)
+      if (startRef.current !== null) {
+        clearTimeout(startRef.current)
+        startRef.current = null
+      }
     }
-  }, [])
+  }, [lineIndex])
+
+  // Loop: once the final line is done, hold the "done" state for a moment so
+  // audience can absorb the glowing clock + all-bright cards, then reset to
+  // lineIndex = -1 which re-triggers the auto-start effect above.
+  useEffect(() => {
+    if (lineIndex < terminalLines.length) return
+    loopRef.current = window.setTimeout(() => {
+      setLineIndex(-1)
+    }, LOOP_PAUSE_MS)
+    return () => {
+      if (loopRef.current !== null) {
+        clearTimeout(loopRef.current)
+        loopRef.current = null
+      }
+    }
+  }, [lineIndex])
 
   // Per-line typewriter effect — fires whenever `lineIndex` changes.
   // For each line: reset char counter, interval-advance until full text shown,
