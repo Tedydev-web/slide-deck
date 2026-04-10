@@ -10,13 +10,13 @@ const timelineItems = [
   {
     year: 'Feb 2025',
     vi: 'Karpathy đặt tên "vibe coding" — cho prototype low-stakes, "accept all"',
-    kr: 'Karpathy "바이브 코딩" 명명 — 저위험 프로토타입용, "accept all"',
+    kr: 'Karpathy "바이브 코딩" 명명 — 저위험 프로토타입용',
     highlight: false,
   },
   {
-    year: 'Mar 2025',
-    vi: 'Willison đính chính: AI-assisted coding ≠ vibe coding',
-    kr: 'Willison 정정: AI-assisted ≠ 바이브 코딩',
+    year: '2025',
+    vi: 'Reality check: "Build được demo ≠ build được product"',
+    kr: '현실: "데모 빌드 ≠ 제품 빌드"',
     highlight: false,
   },
   {
@@ -27,7 +27,7 @@ const timelineItems = [
   },
   {
     year: '2026',
-    vi: 'Agentic: Plan → Execute → Verify → Ship (Anthropic 2026)',
+    vi: 'Agentic: Plan → Execute → Verify → Ship',
     kr: '에이전틱: 계획 → 실행 → 검증 → 배포',
     highlight: true,
   },
@@ -160,9 +160,9 @@ export default function Slide11VibeCodingDead() {
           custom={7}
         >
           <QuoteBlock
-            quote="Not all AI coding is vibe coding. Review, test, understand — it's still engineering."
-            quoteKr="모든 AI 코딩이 바이브 코딩은 아닙니다. 검토, 테스트, 이해 — 여전히 엔지니어링입니다."
-            source="Simon Willison, 2025"
+            quote="Đừng vibe coding… Hãy kiểm soát tụi nó."
+            quoteKr="바이브 코딩 하지 마세요. 제어하세요."
+            source="Goonie — '2026: Here we go!'"
             size="small"
           />
         </motion.div>

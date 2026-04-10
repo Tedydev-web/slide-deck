@@ -62,6 +62,48 @@ Use these 4 callback moments to weave S03's 8 objections as a spine:
 
 ---
 
+## 🇻🇳 VN Context — Data Presentation Frame
+
+**Principle:** Audience VN (dev + non-dev) thường **dè dặt với Western research**. Đừng defend data khi bị push back — sẽ mất authority. Chỉ disclose source + bias, frame data như **signal, không phải truth**.
+
+### Reusable framing cho mỗi foreign data point
+
+Khi cite Faros / METR / Stack Overflow / Jellyfish / Business Insider:
+
+1. **Name source tường minh** — *"FAROS AI 2025 cho số..."* (repeat tên)
+2. **Acknowledge bias ngay** — *"Đây là data TỐT NHẤT hiện có. Không gold standard."*
+3. **Defer to S13** — *"Slide 13 tôi sẽ nói đầy đủ về bias của các source này."*
+4. **Frame như signal** — *"Đây là signal, không phải lời khai của Chúa."*
+
+### ❌ DO NOT
+
+- *"Western research cho thấy..."* → tạo feeling us-vs-them, audience defensive
+- Defend data khi bị pushback (*"Nhưng paper này được peer-reviewed!"*) → lost authority
+- Present foreign data as gospel (*"Fact là..."*) → dev VN sẽ question ngay
+
+### ✅ DO
+
+- Acknowledge skepticism **proactively** — *"Tôi biết các bạn nghi data nước ngoài. Tôi cũng vậy."*
+- Disclose bias **early** — đừng để dồn xuống S13 mới nói, mỗi data point 1 câu caveat
+- Frame as **signal** — *"Đây là 1 trong nhiều signals. Tôi sẽ show signal ngược ở slide sau."*
+- **Cite Goonie + VN sources song song** khi có — tạo cân bằng perspective
+- **Invite pushback** — *"Nếu các bạn có data khác, tôi muốn nghe — Q&A cuối workshop."*
+
+### Which slides need this frame
+
+| Slide | Foreign data | Framing cue |
+|---|---|---|
+| S03 | Stack Overflow 2025 (footer) | "46% dev VN/Global không tin — chính chỗ workshop này sẽ về" |
+| S04 | Faros +110% | "FAROS 2025 là 1 signal. METR slide sau là signal ngược." |
+| S05 | METR 19% slower | "Đây là bằng chứng nhân quả, nhưng N = 16 senior OSS. Edge case, không phải global truth." |
+| S06 | Review bottleneck data | "Bottleneck shift pattern, không phải universal number." |
+| S15 | Jellyfish 20M PRs | "N lớn = signal mạnh. Nhưng Jellyfish bán tool, disclose ở S13." |
+| S36 | Business Insider 2026 | "Data có thể update. Pattern thật." |
+
+**Tone tổng thể:** Humble, self-critical, không bảo vệ data. Audience VN respect người tự disclose hơn người defend cứng.
+
+---
+
 ## 🚨 THEORY ZONE ENTRY — READ BEFORE S15
 
 Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây là **ĐIỂM MỆT NHẤT DECK** — non-dev sẽ zone out nếu speaker không chủ động lift energy.
@@ -274,23 +316,24 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 ---
 
 ### S11 — vibe-coding-dead · 75s ⚡ ⚠️ DEV REFRAME MOMENT
-**Energy:** ⚡ medium → sharper · **Stance:** center, timeline pointing, then stand still for quote
+**Energy:** ⚡ medium → sharper · **Stance:** center, timeline pointing, then stand still for Goonie quote
 **Audience is thinking (dev):** *"Vibe coding? Tôi ghét nó — prove me wrong."*
 **Audience is thinking (non-dev):** *"Vibe coding là gì?"*
 
 **Hook:** *"Trước hết, định nghĩa cho chuẩn. 'Vibe coding' đã bị hiểu sai."* [pause 2s]
 
 **Body:**
-- **Karpathy origin (Feb 2025):** *"Andrej Karpathy đặt tên. Ý gốc: 'accept all, ít đọc diff, sửa lỗi bằng cách quăng lỗi ngược cho AI'. Cho **prototype vui, low-stakes**. Không phải production."*
-- **Willison đính chính (Mar 2025):** *"Simon Willison nhấn mạnh: nếu bạn **review + test + hiểu**, đó vẫn là engineering. Chỉ có LLM hỗ trợ."*
+- **Karpathy origin (historical fact, Feb 2025):** *"Andrej Karpathy đặt tên. Ý gốc: 'accept all, ít đọc diff, sửa lỗi bằng cách quăng lỗi ngược cho AI'. Cho **prototype vui, low-stakes**. Không phải production."* [Karpathy là người đặt tên — fact, không phải authority endorsement]
+- **Reality gap:** *"Nhưng người ta hiểu sai. Tưởng 'build được demo = build được product'. Đó là ảo tưởng."*
+- **Goonie reframe (verbatim):** *"Đừng thả rông AI. Kiểm soát tụi nó. AI không phải đũa thần."* — trích Goonie, bài "2026 — Here we go!"
 - **Critical distinction:** *"Ghét không phải ghét AI. Ghét là ghét **vô trách nhiệm với code của mình**."*
 - **MEMORY HOOK (verbatim):** *"Vấn đề không phải AI viết code. Vấn đề là con người ký tên vào thứ mình không hiểu."*
 
 **Read the room:**
 - Senior dev nod → *"Đúng, tôi biết các bạn phân biệt được. Đây là thứ workshop này sẽ về."*
-- Defensive → *"Tôi không nói các bạn phải dùng AI. Chỉ nói, nếu dùng — dùng cho đúng."*
+- Defensive → *"Tôi không nói các bạn phải dùng AI. Chỉ nói, nếu dùng — kiểm soát cho đúng."*
 
-**Quote emphasis:** đọc Willison quote **chậm**, sau VI 1 beat rồi KR
+**Quote emphasis:** đọc Goonie quote **chậm, dứt khoát**, sau VI 1 beat rồi KR. Đây là câu Goonie viết cho dev VN — dùng giọng "anh em với nhau" không phải "giảng viên".
 
 **KR cue:** *"오해된 정의"* [ohaedoen jeongui] — at slide title
 
