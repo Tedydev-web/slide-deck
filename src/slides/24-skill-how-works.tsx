@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { staggerContainer, slideUp, terminalLine } from '../lib/animations'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Play } from 'lucide-react'
 import SlideLayout, { DotPattern } from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { theme, gradients } from '../lib/theme'
@@ -13,6 +14,12 @@ const steps = [
 ]
 
 export default function Slide24SkillHowWorks() {
+  // Replay state — increments on "Chạy" button click to force re-mount
+  // of the stagger animation, letting presenter re-trigger the 4-step flow
+  // during live demo without navigating away from the slide.
+  const [replayKey, setReplayKey] = useState(0)
+  const handleReplay = () => setReplayKey((k) => k + 1)
+
   return (
     <SlideLayout background={gradients.subtle}>
       <DotPattern rows={4} cols={6} bottom={40} right={60} opacity={0.1} />
@@ -21,7 +28,7 @@ export default function Slide24SkillHowWorks() {
         className="w-full h-full flex flex-col justify-center"
         style={{ padding: '60px 80px' }}
       >
-        <motion.div variants={staggerContainer} initial="hidden" animate="visible">
+        <motion.div key={replayKey} variants={staggerContainer} initial="hidden" animate="visible">
           {/* Terminal prompt — design element */}
           <motion.div
             variants={terminalLine}
@@ -113,6 +120,63 @@ export default function Slide24SkillHowWorks() {
                 )}
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Replay button — interactive demo trigger for live presentation */}
+          <motion.div
+            variants={slideUp}
+            style={{
+              marginTop: 48,
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <button
+              type="button"
+              onClick={handleReplay}
+              aria-label="Chạy lại animation"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 12,
+                padding: '14px 28px',
+                background: 'transparent',
+                border: `1.5px solid ${theme.colors.accent}`,
+                borderRadius: 10,
+                color: theme.colors.accent,
+                cursor: 'pointer',
+                fontFamily: theme.fonts.mono,
+                fontSize: 16,
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                transition: 'background 180ms ease, transform 120ms ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = theme.colors.accentDim
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent'
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = 'scale(0.97)'
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = 'scale(1)'
+              }}
+            >
+              <span>Chạy</span>
+              <span
+                lang="ko"
+                style={{
+                  fontFamily: theme.fonts.korean,
+                  fontSize: '0.78em',
+                  opacity: 0.8,
+                }}
+              >
+                실행
+              </span>
+              <Play size={16} fill={theme.colors.accent} strokeWidth={0} />
+            </button>
           </motion.div>
         </motion.div>
       </div>
