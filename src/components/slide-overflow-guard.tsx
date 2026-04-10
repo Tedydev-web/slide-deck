@@ -16,6 +16,10 @@ interface AutoFitFrameProps {
  *
  * Uses `transform-origin: top center` so scaled content stays horizontally
  * centered within the unchanged slide frame.
+ *
+ * The inner wrapper uses at least the slide height and vertical flex centering
+ * so (1) short slides sit visually centered, and (2) `height: 100%` inside
+ * slide roots resolves against a real 1280×720 box.
  */
 export function AutoFitFrame({ width, height, children }: AutoFitFrameProps) {
   const innerRef = useRef<HTMLDivElement>(null)
@@ -53,15 +57,20 @@ export function AutoFitFrame({ width, height, children }: AutoFitFrameProps) {
         width,
         height,
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'hidden'
       }}
     >
       <div
         ref={innerRef}
         style={{
           width,
+          minHeight: height,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          boxSizing: 'border-box',
           transformOrigin: 'top center',
-          transform: isScaled ? `scale(${scale})` : undefined,
+          transform: isScaled ? `scale(${scale})` : undefined
         }}
       >
         {children}
