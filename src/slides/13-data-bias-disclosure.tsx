@@ -46,8 +46,8 @@ export default function Slide13DataBiasDisclosure() {
           style={{ marginTop: 16, marginBottom: 28 }}
         >
           <BiText
-            vi="Data trong buổi này có bias. Tôi nói trước."
-            kr="이 자료는 편향이 있습니다. 미리 말씀드립니다."
+            vi="Dữ liệu này có thiên lệch. Hãy đọc với ngữ cảnh."
+            kr="이 데이터는 편향이 있습니다. 맥락을 함께 보세요."
             viStyle={{
               fontFamily: theme.fonts.display,
               fontSize: 38,
@@ -130,8 +130,8 @@ export default function Slide13DataBiasDisclosure() {
           }}
         >
           <BiText
-            vi="Nhưng đây vẫn là data lớn nhất hiện có. Không dùng data này = dùng linh cảm."
-            kr="하지만 이것이 현재 가장 큰 데이터입니다. 이 데이터를 안 쓰면 = 감에 의존하는 것."
+            vi="Dù có bias, đây vẫn là bộ dữ liệu thực tế lớn nhất hiện có. Bỏ qua nó thì chỉ còn quyết định theo cảm tính."
+            kr="편향이 있어도 지금 가장 큰 실무 데이터입니다. 이걸 무시하면 결국 감으로 결정하게 됩니다."
             viStyle={{
               fontFamily: theme.fonts.body,
               fontSize: 15,

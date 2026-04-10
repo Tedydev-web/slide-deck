@@ -92,3 +92,15 @@ export const slides: ComponentType[] = [
   Slide37, Slide38, Slide39, Slide40, Slide41,
   Slide42, Slide43, Slide44, Slide45, Slide46, Slide47,
 ]
+
+export const slideSlugs: string[] = [
+  '01-cold-open', '02-survey-warmup', '03-eight-objections', '04-productivity-data', '05-metr-slower', '06-review-bottleneck', '07-summary-wrong-goal',
+  '08-core-thesis', '09-amplifier', '10-three-level-spectrum', '11-vibe-coding-dead',
+  '12-roi-cost-value', '13-data-bias-disclosure', '14-junior-ai-learning', '14a-context-bridge',
+  '15-jellyfish-pr-data', '16-context-concept', '17-context-window', '18-seven-components', '19-quality-equation', '20-few-shot', '21-rag',
+  '22-harness-evolution', '23-skill-definition', '24-skill-how-works', '25-skill-anatomy', '26-skill-trigger',
+  '27-demo-dev-bug-fix', '28-demo-nondev-design', '29-demo-mixed-claude-md',
+  '30-bad-vs-good', '31-ai-boundaries', '32-skill-atrophy', '33-when-not-to-use-ai', '34-data-sandbox-security', '35-guardrails', '36-hidden-quality-costs',
+  '37-usecase-dev', '38-usecase-qa', '39-usecase-design', '40-usecase-marketing', '41-usecase-hr',
+  '42-pilot-rollout-90-day', '43-right-strategy', '44-best-practices', '45-builtin-vs-custom', '46-takeaway-metrics', '47-closing-cta',
+]

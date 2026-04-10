@@ -27,7 +27,13 @@ export default function Slide08CoreThesis() {
           custom={1}
         >
           <BiText
-            vi="Trình mình ở đâu, trình AI ở đó."
+            vi={
+              <>
+                Trình mình ở đâu,
+                <br />
+                trình AI ở đó.
+              </>
+            }
             kr="당신의 실력이 AI의 실력입니다."
             viStyle={{
               fontFamily: theme.fonts.display,

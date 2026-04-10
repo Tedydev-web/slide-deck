@@ -22,6 +22,15 @@ const values = [
   },
 ]
 
+const rowGap = 12
+const leftCardHeight = 58
+const leftCardCount = 3
+const rightCardCount = 2
+const rightCardHeight = Math.round(
+  ((leftCardHeight * leftCardCount) + (rowGap * (leftCardCount - 1)) - rowGap) / rightCardCount,
+)
+const summaryCardHeight = 92
+
 export default function Slide12RoiCostValue() {
   return (
     <SlideLayout background={gradients.subtle}>
@@ -59,14 +68,22 @@ export default function Slide12RoiCostValue() {
         </motion.div>
 
         {/* Two-column layout */}
-        <div style={{ display: 'flex', gap: 40, flex: 1, minHeight: 0 }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
+            gap: 40,
+            flex: 1,
+            minHeight: 0,
+          }}
+        >
           {/* LEFT: cost column */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={2}
-            style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}
+            style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 12, height: '100%' }}
           >
             <BiText
               vi="Chi phí / tháng"
@@ -82,40 +99,43 @@ export default function Slide12RoiCostValue() {
               krStyle={{ fontSize: '0.85em', marginTop: '0.2em' }}
             />
 
-            {costs.map((c, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '14px 18px',
-                  background: theme.colors.surface,
-                  border: `1px solid ${theme.colors.border}`,
-                  borderRadius: 8,
-                }}
-              >
-                <span
+            <div style={{ display: 'flex', flexDirection: 'column', gap: rowGap, flex: 1 }}>
+              {costs.map((c, i) => (
+                <div
+                  key={i}
                   style={{
-                    fontFamily: theme.fonts.body,
-                    fontSize: 15,
-                    color: theme.colors.textSecondary,
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '14px 18px',
+                    background: theme.colors.surface,
+                    border: `1px solid ${theme.colors.border}`,
+                    borderRadius: 8,
+                    minHeight: leftCardHeight,
                   }}
                 >
-                  {c.label}
-                </span>
-                <span
-                  style={{
-                    fontFamily: theme.fonts.mono,
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: theme.colors.text,
-                  }}
-                >
-                  {c.value}
-                </span>
-              </div>
-            ))}
+                  <span
+                    style={{
+                      fontFamily: theme.fonts.body,
+                      fontSize: 15,
+                      color: theme.colors.textSecondary,
+                    }}
+                  >
+                    {c.label}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: theme.fonts.mono,
+                      fontSize: 14,
+                      fontWeight: 600,
+                      color: theme.colors.text,
+                    }}
+                  >
+                    {c.value}
+                  </span>
+                </div>
+              ))}
+            </div>
 
             {/* Total */}
             <div
@@ -125,6 +145,9 @@ export default function Slide12RoiCostValue() {
                 border: `1px solid ${theme.colors.accent}`,
                 borderRadius: 8,
                 marginTop: 4,
+                minHeight: summaryCardHeight,
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
               <BiText
@@ -147,7 +170,7 @@ export default function Slide12RoiCostValue() {
             initial="hidden"
             animate="visible"
             custom={3}
-            style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}
+            style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 12, height: '100%' }}
           >
             <BiText
               vi="Giá trị trả lại"
@@ -163,29 +186,32 @@ export default function Slide12RoiCostValue() {
               krStyle={{ fontSize: '0.85em', marginTop: '0.2em' }}
             />
 
-            {values.map((v, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: '16px 18px',
-                  background: theme.colors.surface,
-                  border: `1px solid ${theme.colors.border}`,
-                  borderRadius: 8,
-                }}
-              >
-                <BiText
-                  vi={v.vi}
-                  kr={v.kr}
-                  viStyle={{
-                    fontFamily: theme.fonts.body,
-                    fontSize: 14,
-                    color: theme.colors.textSecondary,
-                    lineHeight: 1.5,
+            <div style={{ display: 'flex', flexDirection: 'column', gap: rowGap, flex: 1 }}>
+              {values.map((v, i) => (
+                <div
+                  key={i}
+                  style={{
+                    padding: '16px 18px',
+                    background: theme.colors.surface,
+                    border: `1px solid ${theme.colors.border}`,
+                    borderRadius: 8,
+                    minHeight: rightCardHeight,
                   }}
-                  krStyle={{ fontSize: '0.78em', marginTop: '0.25em' }}
-                />
-              </div>
-            ))}
+                >
+                  <BiText
+                    vi={v.vi}
+                    kr={v.kr}
+                    viStyle={{
+                      fontFamily: theme.fonts.body,
+                      fontSize: 14,
+                      color: theme.colors.textSecondary,
+                      lineHeight: 1.5,
+                    }}
+                    krStyle={{ fontSize: '0.78em', marginTop: '0.25em' }}
+                  />
+                </div>
+              ))}
+            </div>
 
             {/* Net value */}
             <div
@@ -195,6 +221,9 @@ export default function Slide12RoiCostValue() {
                 border: `1px solid ${theme.colors.green}`,
                 borderRadius: 8,
                 marginTop: 4,
+                minHeight: summaryCardHeight,
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
               <BiText
@@ -202,8 +231,8 @@ export default function Slide12RoiCostValue() {
                 kr="순 가치 = 절약 시간 − 리뷰 부하"
                 viStyle={{
                   fontFamily: theme.fonts.display,
-                  fontSize: 15,
-                  fontWeight: 700,
+                  fontSize: 17,
+                  fontWeight: 800,
                   color: theme.colors.green,
                 }}
                 krStyle={{ fontSize: '0.78em', marginTop: '0.25em', color: theme.colors.green }}

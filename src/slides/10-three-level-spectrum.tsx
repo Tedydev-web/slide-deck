@@ -121,6 +121,7 @@ export default function Slide10ThreeLevelSpectrum() {
             gridTemplateColumns: '1fr 1fr 1fr',
             gap: 18,
             flex: 1,
+            alignItems: 'start',
           }}
         >
           {levels.map((card, i) => (
@@ -235,7 +236,11 @@ export default function Slide10ThreeLevelSpectrum() {
           initial="hidden"
           animate="visible"
           custom={7}
-          style={{ marginTop: 16 }}
+          style={{
+            marginTop: 8,
+            display: 'flex',
+            justifyContent: 'center',
+          }}
         >
           <BiText
             vi="Tất cả đều hợp lệ. Câu hỏi: bạn có đang DÙNG sai level cho task sai?"
@@ -245,6 +250,8 @@ export default function Slide10ThreeLevelSpectrum() {
               fontSize: 13,
               color: theme.colors.textMuted,
               fontStyle: 'italic',
+              textAlign: 'center',
+              maxWidth: 860,
             }}
             krStyle={{ fontSize: '0.78em', marginTop: '0.15em' }}
           />

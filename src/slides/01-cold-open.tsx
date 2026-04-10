@@ -75,7 +75,7 @@ export default function Slide01ColdOpen() {
               fontWeight: 400,
               lineHeight: 1.55,
               color: theme.colors.textSecondary,
-              maxWidth: 800,
+              maxWidth: 980,
             }}
             krStyle={{
               fontSize: '0.78em',

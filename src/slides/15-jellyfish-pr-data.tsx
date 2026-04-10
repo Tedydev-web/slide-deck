@@ -78,8 +78,10 @@ export default function Slide15JellyfishPrData() {
             data={barData}
             maxValue={3}
             barHeight={56}
-            labelWidth={280}
-            style={{ width: '100%' }}
+            labelWidth={200}
+            labelGap={10}
+            labelAlign="left"
+            style={{ width: '92%', maxWidth: 930 }}
           />
         </motion.div>
       </div>

@@ -29,6 +29,14 @@ export function BiText({
   className,
   as: Tag = 'div',
 }: BiTextProps) {
+  const viBaseStyle: CSSProperties = {
+    display: 'block',
+    lineBreak: 'auto',
+    overflowWrap: 'normal',
+    wordBreak: 'normal',
+    textWrap: 'pretty',
+  }
+
   const krBaseStyle: CSSProperties = {
     display: inline ? 'inline-block' : 'block',
     fontFamily: theme.fonts.korean,
@@ -44,7 +52,7 @@ export function BiText({
 
   return (
     <Tag className={className} style={viStyle}>
-      <span className="vi">{vi}</span>
+      <span className="vi" style={viBaseStyle}>{vi}</span>
       <span className="kr" lang="ko" style={krBaseStyle}>
         {kr}
       </span>

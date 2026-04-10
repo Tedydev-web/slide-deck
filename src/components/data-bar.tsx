@@ -23,6 +23,10 @@ interface DataBarProps {
   barHeight?: number
   /** Horizontal gap between label and bar */
   labelWidth?: number
+  /** Gap between label column and bar area */
+  labelGap?: number
+  /** Label alignment in label column */
+  labelAlign?: 'left' | 'right'
   /** Animate bars in on mount */
   animated?: boolean
   style?: CSSProperties
@@ -38,6 +42,8 @@ export function DataBar({
   showValues = true,
   barHeight = 38,
   labelWidth = 280,
+  labelGap = 18,
+  labelAlign = 'right',
   animated = true,
   style,
 }: DataBarProps) {
@@ -64,7 +70,7 @@ export function DataBar({
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 18,
+              gap: labelGap,
             }}
           >
             <div
@@ -75,7 +81,7 @@ export function DataBar({
                 fontSize: 15,
                 color: theme.colors.text,
                 fontWeight: 500,
-                textAlign: 'right',
+                textAlign: labelAlign,
               }}
             >
               {item.label}
