@@ -273,17 +273,28 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 ---
 
-### S11 — vibe-coding-dead · 60s ⚡
-**Energy:** ⚡ medium · **Stance:** center, timeline pointing
-**Audience is thinking:** *"Vibe coding? Mình có làm đấy."*
+### S11 — vibe-coding-dead · 75s ⚡ ⚠️ DEV REFRAME MOMENT
+**Energy:** ⚡ medium → sharper · **Stance:** center, timeline pointing, then stand still for quote
+**Audience is thinking (dev):** *"Vibe coding? Tôi ghét nó — prove me wrong."*
+**Audience is thinking (non-dev):** *"Vibe coding là gì?"*
 
-**Hook:** *"Autocomplete (2021) → Chat (2023) → Vibe coding (2024) → Agentic (2025–26)."*
+**Hook:** *"Trước hết, định nghĩa cho chuẩn. 'Vibe coding' đã bị hiểu sai."* [pause 2s]
 
 **Body:**
-- **Karpathy reference:** *"Karpathy coined 'vibe coding'. Nhưng chính Karpathy sau đó cảnh báo nó fail ở scale."*
-- **MEMORY HOOK:** *"Vibe coding OK cho prototype. Không OK cho production."*
+- **Karpathy origin (Feb 2025):** *"Andrej Karpathy đặt tên. Ý gốc: 'accept all, ít đọc diff, sửa lỗi bằng cách quăng lỗi ngược cho AI'. Cho **prototype vui, low-stakes**. Không phải production."*
+- **Willison đính chính (Mar 2025):** *"Simon Willison nhấn mạnh: nếu bạn **review + test + hiểu**, đó vẫn là engineering. Chỉ có LLM hỗ trợ."*
+- **Critical distinction:** *"Ghét không phải ghét AI. Ghét là ghét **vô trách nhiệm với code của mình**."*
+- **MEMORY HOOK (verbatim):** *"Vấn đề không phải AI viết code. Vấn đề là con người ký tên vào thứ mình không hiểu."*
 
-**Transition:** *"Nhưng đủ talk về tương lai. Câu hỏi CTO thật sự muốn hỏi là..."*
+**Read the room:**
+- Senior dev nod → *"Đúng, tôi biết các bạn phân biệt được. Đây là thứ workshop này sẽ về."*
+- Defensive → *"Tôi không nói các bạn phải dùng AI. Chỉ nói, nếu dùng — dùng cho đúng."*
+
+**Quote emphasis:** đọc Willison quote **chậm**, sau VI 1 beat rồi KR
+
+**KR cue:** *"오해된 정의"* [ohaedoen jeongui] — at slide title
+
+**Transition:** *"Nhưng đủ talk định nghĩa. Câu hỏi CTO thật sự muốn hỏi là..."* [walk to center]
 
 ---
 
@@ -330,7 +341,7 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 ---
 
-### S14 — junior-ai-learning · 90s ⚡ ⚠️ JUNIOR RELIEF
+### S14 — junior-ai-learning · 90s ⚡ ⚠️ JUNIOR RELIEF · REFRAME #6
 **Energy:** ⚡ medium — warm, reassuring · **Stance:** lean toward junior section if visible
 **Audience is thinking (junior):** *"AI sẽ lấy job tôi. Tôi không có tương lai."*
 **Audience is thinking (senior):** *"Junior phải học cách nào mới?"*
@@ -340,12 +351,14 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 **Body:**
 - Show comparison: 12 tháng traditional → 3 tháng với AI
 - **CONDITION — emphasize hard:** *"NHƯNG phải hỏi 'WHY'. Không hỏi → AI phá hủy khả năng học."*
+- **🎯 REFRAME #6 (verbatim):** *"AI không lấy đường sống junior. AI **đổi** đường. Junior nào sớm master AI tools + giữ nền tảng để phản biện AI → lợi thế cạnh tranh lớn."*
 - **MEMORY HOOK:** *"AI as mentor = accelerate. AI as shortcut = atrophy."*
 - Personal anecdote **optional**: share 1 junior case từ team của bạn nếu có
 
 **Read the room:**
-- Junior nhìn xuống → họ sợ. *"Bạn không bị đâu, chỉ cần hỏi WHY."*
+- Junior nhìn xuống → họ sợ. *"Bạn không hết đường đâu. Chỉ là đường khác. Hỏi WHY là kỹ năng mới."*
 - Junior gật → tốt.
+- Senior theo dõi junior → *"Senior ở đây: hãy dạy junior hỏi WHY. Đó là mentor value mới."*
 
 **Transition:** *"Ch3 tới đây có vẻ kỹ thuật — nhưng..."*
 
@@ -993,3 +1006,155 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 4. **Energy arc matters more than content.** Theory zone is the risk — lift energy actively.
 5. **Callback spine = dialogue illusion.** Use all 4 callbacks (S13, S29, S33, S47) or audience feels monologue.
 6. **The MEMORY HOOK phrases are the only verbatim parts.** Rest = improv around bullet points.
+
+---
+
+# 📚 APPENDICES — Optional Rehearsal Arsenal
+
+> **When to use:** Các phần dưới là OPTIONAL — chỉ dùng khi audience dev pushback mạnh, hoặc khi có thời gian Q&A dài, hoặc khi bạn muốn thay thế/mở rộng closing.
+> Không phải mỗi show đều cần. Rehearse để biết, không rehearse để đọc máy móc.
+
+---
+
+## 🎯 Appendix A — Dev Reframe Arsenal (10 reframes)
+
+**Mục đích:** Khi dev skeptic pushback về AI/vibe coding, đừng cãi. Dùng reframe mềm để đổi góc nhìn — không công kích.
+
+**Nguyên tắc vàng:** *"Thừa nhận nỗi khó chịu của dev là có cơ sở, rồi mới bẻ góc nhìn."*
+
+### Reframe #1 — Anti-AI → Anti-vô-trách-nhiệm
+> *"Dev không ghét AI. Dev ghét việc một người giao trách nhiệm cho máy rồi bắt người khác gánh hậu quả."*
+
+**When to use:** Khi ai đó nói "Tôi không dùng AI vì nó không reliable"
+**Response:** *"Đồng ý — tôi cũng không tin vibe coding thả nổi. Nhưng AI-assisted engineering **có review + test** là chuyện khác. Vibe ≠ assisted."*
+
+### Reframe #2 — "AI mất giá nghề dev" → "AI lộ ra phần giá trị thật"
+> *"Khi việc gõ code rẻ đi, thứ đắt hơn là: framing vấn đề, chọn trade-off, kiểm chứng, bảo mật, maintainability, và **trách nhiệm**."*
+
+**When to use:** Senior dev lo AI thay mình
+**Response:** *"Nghề dev chưa bao giờ chỉ là gõ code. AI chỉ làm lộ điều đó."*
+
+### Reframe #3 — "AI nhanh hơn nên tốt hơn" → "AI nhanh ở khâu SINH, không nhanh ở khâu CHỊU TRÁCH NHIỆM"
+> *"AI nhanh ở sinh phương án. AI không tự nhanh ở chịu trách nhiệm. Ai review? Ai ship? Ai on-call khi production down?"*
+
+**When to use:** Khi ai đó đo productivity bằng dòng code hoặc PR count
+**Response:** *"Nhiều code ≠ nhiều value. Production bug cost gấp 100× dev time tiết kiệm."*
+
+### Reframe #4 — "Vibe coding phá nghề" → "Vibe coding là sân tập trực giác"
+> *"Simon Willison: vibe coding hữu ích để xây trực giác về LLM — làm được gì, không làm được gì. Nên là sandbox để học, không phải triết lý ship mọi thứ."*
+
+**When to use:** Khi ai đó bash vibe coding universal
+**Response:** *"Vibe coding ở low-stakes project = học. Vibe coding ở production auth = thảm hoạ. Khác sân chơi."*
+
+### Reframe #5 — "Phải hiểu hết rồi mới dùng AI" → "Dùng AI để hiểu nhanh hơn — chọn đúng sân"
+> *"Bạn không cần master hết rồi mới dùng AI. Bạn cần sandbox + dự án low-stakes + không dữ liệu nhạy cảm để thử."*
+
+**When to use:** Junior sợ "mình không đủ giỏi mới dùng AI"
+**Response:** *"Cách học nhanh nhất là bắt tay vào làm. Chỉ cần chọn sân an toàn."*
+
+### Reframe #6 — "AI khiến junior hết đường sống" → "AI đang đổi cách junior học nghề"
+> *"AI lấy đi nhiều task cơ bản mà junior từng dùng để học. NHƯNG — junior nào sớm master AI tools + giữ nền tảng đủ tốt để **phản biện AI** → lợi thế cạnh tranh lớn. Không phải hết đường. Đây là đổi đường."*
+
+**When to use:** Junior defensive, senior lo cho junior
+**Response:** *"Kỹ năng mới của junior = hỏi AI 'WHY'. Senior có thể dạy cái đó."*
+
+### Reframe #7 — "Senior sẽ bị thay" → "Senior càng có giá nếu biết biến context thành leverage"
+> *"Stack Overflow 2025: nhóm experienced devs ít 'highly trust' AI nhất. Sự dè dặt của senior là **tài sản**, miễn là không biến thành phủ định sạch trơn."*
+
+**When to use:** Senior bị attack vì "chống AI"
+**Response:** *"Senior skepticism = immune system của codebase. AI cần senior review hơn senior cần AI."*
+
+### Reframe #8 — "AI là phép màu" → "AI là đòn bẩy có điều kiện"
+> *"Goonie: thứ làm người ta ảo tưởng không phải AI mạnh quá, mà là tưởng **build được demo đồng nghĩa build được product**. Production-readiness, security, deploy, go-to-market vẫn là pain rất thật."*
+
+**When to use:** Khi ai đó hype AI vô điều kiện
+**Response:** *"Demo 5 phút không bằng production stable 5 tháng. Khoảng cách đó là nghề của chúng ta."*
+
+### Reframe #9 — "Prompt giỏi là đủ" → "Quy trình mới là thứ cứu mình"
+> *"Anthropic 2026 agentic best practices: verification, planning, context, subagents, checkpoints. Đừng thần bí hóa prompt. Hãy hệ thống hóa cách làm việc."*
+
+**When to use:** Khi ai đó hỏi "làm sao prompt cho AI giỏi hơn"
+**Response:** *"Đặt câu hỏi sai. Câu đúng là: 'harness nào quanh AI để catch lỗi của AI?'"*
+
+### Reframe #10 — "AI hay con người" → "AI + con người + quy trình"
+> *"Goonie: 'Hãy để AI trở thành bạn đồng hành — không phải sự thay thế.' Đây là cách phá cả 2 cực đoan: sợ AI và thờ AI."*
+
+**When to use:** Closing debate, hoặc khi audience chia rẽ AI vs anti-AI
+**Response:** *"Cả 2 cực đều sai. Nghiêng về 1 cực = mất cân bằng. Dev giỏi giữ cân bằng."*
+
+---
+
+## 💬 Appendix B — Dev-Targeted Closing (Alternative for S47)
+
+**When to use:** Khi audience dev chiếm ≥70% và bạn cảm thấy closing S47 mặc định ("Xây harness. Đừng chỉ prompt.") không chạm đủ sâu vào tâm lý dev audience.
+
+**How to use:** Sau khi đọc MEMORY HOOK "Xây harness. Đừng chỉ prompt." (giữ nguyên), chuyển sang speech sau trong ~45s:
+
+> *"Tôi không đến đây để bảo anh em bỏ code và đi nói chuyện với AI.*
+>
+> *Tôi chỉ muốn nói rằng nghề dev chưa bao giờ chỉ là gõ ký tự.*
+>
+> *Nghề của chúng ta là **hiểu bài toán**, **chọn trade-off**, **kiểm chứng**, và **chịu trách nhiệm**.*
+>
+> *AI đang lấy đi phần dễ ảo tưởng nhất của nghề — là cảm giác bận rộn vì gõ nhiều.*
+>
+> *Nhưng chính vì vậy, nó lại làm nổi bật phần giá trị nhất của nghề — là **judgment**."*
+
+**Delivery notes:**
+- Đọc **chậm**, mỗi dòng pause 1 beat
+- Stand dead center, body still
+- Eye contact sweep 3 khu vực audience
+- Cuối cùng: pause 3s rồi smile → nhận applause
+
+**Không dùng nếu:**
+- Audience non-dev ≥50% → dùng closing default
+- Thời gian dưới 50 min → dùng closing default ngắn
+- Cảm giác room đã mệt → dùng closing default punch
+
+---
+
+## 📌 Appendix C — 8 Bumper Sticker Quotes (drop anytime)
+
+**When to use:** Các câu ngắn, memorable, drop bất kỳ lúc nào audience cần "đập chấp niệm" — đặc biệt hiệu quả trong Q&A hoặc khi có pushback.
+
+**How to use:** Quote verbatim, đọc chậm, pause sau mỗi câu. Không quote nhiều cùng lúc — 1 quote per objection.
+
+1. **Trách nhiệm:** *"Điều đáng sợ không phải AI viết code. Điều đáng sợ là con người ký tên vào thứ mình không hiểu."*
+
+2. **Vibe coding:** *"Vấn đề của vibe coding không phải là có AI. Vấn đề là có AI nhưng không có kỷ luật."*
+
+3. **Giá trị dev:** *"AI không làm nghề dev biến mất. AI làm phần 'gõ cho nhanh' rẻ đi, để phần 'nghĩ cho đúng' lộ giá trị thật."*
+
+4. **Career question:** *"Đừng hỏi AI có thay dev không. Hãy hỏi: dev nào biết làm việc với AI mà vẫn giữ chuẩn nghề."*
+
+5. **Engineer identity:** *"Một engineer giỏi không được định nghĩa bởi số dòng code tự tay gõ, mà bởi số quyết định đúng họ dám chịu trách nhiệm."*
+
+6. **AI-assisted legit:** *"Nếu code do AI viết mà bạn review, test và giải thích được — đó không phải phản bội nghề. Đó là nghề đang tiến hóa."*
+
+7. **Vibe coding role:** *"Vibe coding nên là chỗ để học trực giác, không phải nơi để gửi gắm niềm tin mù quáng."*
+
+8. **Standards:** *"AI không phải lý do để bỏ chuẩn kỹ thuật. AI là lý do để chuẩn kỹ thuật trở nên **quan trọng hơn**."*
+
+### Delivery tips
+
+- **Don't dump all 8.** Pick 1-2 phù hợp với câu hỏi cụ thể.
+- **Memorize verbatim.** Bumper stickers chỉ mạnh khi đọc mượt, không vấp.
+- **Pause after.** Để câu kết thúc thấm, không rush transition.
+- **Eye contact.** Nhìn trực diện người vừa hỏi khi trả lời bằng quote.
+
+---
+
+## 📖 Source References
+
+Các source dùng trong Appendix A/B/C cho presenter đối chiếu nếu audience hỏi:
+
+- **Andrej Karpathy** (Feb 2025) — người đặt tên "vibe coding" — Twitter/X
+- **Simon Willison** (2025) — nuance "not all AI coding = vibe" — simonwillison.net
+- **Stack Overflow Developer Survey 2025** — 46% mistrust accuracy, 66% frustrated — survey.stackoverflow.co
+- **METR RCT 2025** — 19% slower on senior OSS devs — metr.org
+- **Anthropic Agentic Coding Report (2026)** — verification/planning/context/checkpoints
+- **Goonie "2026 - Here we go!"** — Vietnamese dev perspective, control vs thả rông
+- **Faros AI 2025** — +110% PR, 10,000 devs, 1,255 teams
+- **Jellyfish 2025** — 700 companies, 200k engineers, 20M PRs
+
+**Note về Goonie:** Đây là tác giả Vietnamese dev community. Chỉ reference trong speaker notes (personal voice), không cite trên slide để tránh assumption KR audience không biết. Nếu audience 100% Việt Nam + dev-familiar → có thể mention tên trên sân khấu.
