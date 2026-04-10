@@ -44,29 +44,15 @@ export default function Slide24SkillHowWorks() {
               fontWeight: 800,
               fontFamily: theme.fonts.display,
               letterSpacing: '-0.02em',
-              marginBottom: 8,
-            }}
-          >
-            Cách Skill hoạt động
-          </motion.h2>
-
-          <motion.div
-            variants={slideUp}
-            style={{
               marginBottom: 48,
             }}
           >
-            <span
-              lang="ko"
-              style={{
-                fontFamily: theme.fonts.korean,
-                fontSize: 'clamp(13px, 1.3vw, 16px)',
-                color: theme.colors.textMuted,
-              }}
-            >
-              방법: 4단계
-            </span>
-          </motion.div>
+            <BiText
+              vi="Cách Skill hoạt động"
+              kr="스킬의 작동 방식"
+              krStyle={{ fontSize: '0.55em', marginTop: '0.35em', color: theme.colors.textMuted }}
+            />
+          </motion.h2>
 
           <motion.div variants={staggerContainer} className="flex items-start justify-between">
             {steps.map((step, i) => (
