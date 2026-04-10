@@ -121,63 +121,67 @@ export default function Slide24SkillHowWorks() {
               </motion.div>
             ))}
           </motion.div>
+        </motion.div>
 
-          {/* Replay button — interactive demo trigger for live presentation */}
-          <motion.div
-            variants={slideUp}
+        {/* Replay button — OUTSIDE the keyed container so it stays visible */}
+        {/* during replay. Click triggers a fresh re-mount of the animated    */}
+        {/* block above via replayKey, without the button itself flickering.  */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.5, ease: 'easeOut' }}
+          style={{
+            marginTop: 48,
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <button
+            type="button"
+            onClick={handleReplay}
+            aria-label="Chạy lại animation"
             style={{
-              marginTop: 48,
-              display: 'flex',
-              justifyContent: 'center',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 12,
+              padding: '14px 28px',
+              background: 'transparent',
+              border: `1.5px solid ${theme.colors.accent}`,
+              borderRadius: 10,
+              color: theme.colors.accent,
+              cursor: 'pointer',
+              fontFamily: theme.fonts.mono,
+              fontSize: 16,
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              transition: 'background 180ms ease, transform 120ms ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = theme.colors.accentDim
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent'
+            }}
+            onMouseDown={(e) => {
+              e.currentTarget.style.transform = 'scale(0.97)'
+            }}
+            onMouseUp={(e) => {
+              e.currentTarget.style.transform = 'scale(1)'
             }}
           >
-            <button
-              type="button"
-              onClick={handleReplay}
-              aria-label="Chạy lại animation"
+            <span>Chạy</span>
+            <span
+              lang="ko"
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 12,
-                padding: '14px 28px',
-                background: 'transparent',
-                border: `1.5px solid ${theme.colors.accent}`,
-                borderRadius: 10,
-                color: theme.colors.accent,
-                cursor: 'pointer',
-                fontFamily: theme.fonts.mono,
-                fontSize: 16,
-                fontWeight: 700,
-                letterSpacing: '0.04em',
-                transition: 'background 180ms ease, transform 120ms ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = theme.colors.accentDim
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent'
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = 'scale(0.97)'
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = 'scale(1)'
+                fontFamily: theme.fonts.korean,
+                fontSize: '0.78em',
+                opacity: 0.8,
               }}
             >
-              <span>Chạy</span>
-              <span
-                lang="ko"
-                style={{
-                  fontFamily: theme.fonts.korean,
-                  fontSize: '0.78em',
-                  opacity: 0.8,
-                }}
-              >
-                실행
-              </span>
-              <Play size={16} fill={theme.colors.accent} strokeWidth={0} />
-            </button>
-          </motion.div>
+              실행
+            </span>
+            <Play size={16} fill={theme.colors.accent} strokeWidth={0} />
+          </button>
         </motion.div>
       </div>
     </SlideLayout>
