@@ -14,13 +14,7 @@ export default function Slide19QualityEquation() {
   return (
     <SlideLayout background={gradients.subtle}>
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '50px 80px' }}>
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="visible" custom={0}
-          style={{ fontFamily: theme.fonts.display, fontSize: 'clamp(70px, 9vw, 100px)', color: theme.colors.accentDim, lineHeight: 1, marginBottom: -8 }}
-        >
-          11
-        </motion.div>
-
+        {/* Corner page-number watermark now comes from SlideLayout globally */}
         <motion.h2
           variants={fadeUp} initial="hidden" animate="visible" custom={0.5}
           style={{ fontFamily: theme.fonts.display, fontSize: 'clamp(24px, 2.8vw, 36px)', color: theme.colors.text, lineHeight: 1.2, marginBottom: 4 }}
@@ -39,13 +33,16 @@ Công thức chất lượng
           style={{
             background: `linear-gradient(135deg, ${theme.colors.accent} 0%, ${theme.colors.accentHover} 100%)`,
             borderRadius: 12,
-            maxWidth: 650,
-            marginBottom: 28,
+            width: '100%',
+            maxWidth: 960,
+            alignSelf: 'center',
+            marginBottom: 32,
             textAlign: 'center',
+            boxShadow: `0 0 48px ${theme.colors.accent}33`,
           }}
         >
-          <div style={{ padding: '20px 28px' }}>
-            <span style={{ fontFamily: theme.fonts.display, fontSize: 'clamp(18px, 2vw, 26px)', color: theme.colors.text }}>
+          <div style={{ padding: '24px 36px' }}>
+            <span style={{ fontFamily: theme.fonts.display, fontSize: 'clamp(20px, 2.2vw, 30px)', color: theme.colors.text, fontWeight: 700 }}>
               Chất lượng output = f(Năng lực model × Chất lượng context)
             </span>
             <span lang="ko" style={{ display: 'block', fontFamily: theme.fonts.korean, fontSize: 'clamp(12px, 1.2vw, 15px)', color: 'rgba(255,255,255,0.75)', marginTop: '0.5em' }}>
@@ -56,21 +53,23 @@ Công thức chất lượng
 
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible" custom={1.5}
-          style={{ width: '100%', maxWidth: 700, height: 220 }}
+          style={{ width: '100%', maxWidth: 960, alignSelf: 'center', height: 260 }}
         >
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data} barCategoryGap="25%">
+            <BarChart data={data} barCategoryGap="22%" margin={{ top: 16, right: 24, left: 8, bottom: 8 }}>
               <XAxis
                 dataKey="name"
-                tick={{ fill: theme.colors.textSecondary, fontSize: 12, fontFamily: theme.fonts.body }}
+                tick={{ fill: theme.colors.textSecondary, fontSize: 13, fontFamily: theme.fonts.body }}
                 axisLine={{ stroke: theme.colors.border }}
                 tickLine={false}
+                interval={0}
               />
               <YAxis
                 tick={{ fill: '#666', fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
                 domain={[0, 100]}
+                width={36}
               />
               <Bar dataKey="value" radius={[6, 6, 0, 0]}>
                 <Cell fill="#FF8A65" />
@@ -83,7 +82,16 @@ Công thức chất lượng
 
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible" custom={2.5}
-          style={{ fontFamily: theme.fonts.body, fontSize: 'clamp(13px, 1.3vw, 16px)', color: theme.colors.textSecondary, marginTop: 8, textAlign: 'center' }}
+          style={{
+            fontFamily: theme.fonts.body,
+            fontSize: 'clamp(14px, 1.4vw, 17px)',
+            color: theme.colors.textSecondary,
+            marginTop: 14,
+            textAlign: 'center',
+            alignSelf: 'center',
+            width: '100%',
+            maxWidth: 960,
+          }}
         >
 Chất lượng context thường <strong style={{ color: theme.colors.text }}>quan trọng hơn</strong> việc chọn model.
           <span lang="ko" style={{ display: 'block', fontFamily: theme.fonts.korean, fontSize: '0.78em', color: theme.colors.textMuted, marginTop: '0.35em' }}>
