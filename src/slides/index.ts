@@ -1,13 +1,13 @@
 import type { ComponentType } from 'react'
 
 /* ============================================================
- * AI Agent Workshop Deck — 47 slides (v2, red-team approved)
+ * AI Agent Workshop Deck — 47 slides (v3, S20 few-shot cut)
  *
  * Chapter structure:
  *  Ch1 Hạ Phòng Thủ              01-07   (7 slides)
  *  Ch2 Core Philosophy            08-11   (4 slides)
- *  Ch2 Reality Checks (v2)        12-14   (3 slides)
- *  Ch3 Context Engineering        15-21   (7 slides)
+ *  Ch2 Reality Checks (v2)        12-14   (3 + 14a bridge)
+ *  Ch3 Context Engineering        15-21   (6 slides, S20 cut)
  *  Ch4 Harness Engineering        22-26   (5 slides)
  *  Ch5 Demos (rebalanced)         27-29   (3 slides)
  *  Ch6 Honest Truths              30-36   (7 slides)
@@ -42,7 +42,6 @@ import Slide16 from './16-context-concept'
 import Slide17 from './17-context-window'
 import Slide18 from './18-seven-components'
 import Slide19 from './19-quality-equation'
-import Slide20 from './20-few-shot'
 import Slide21 from './21-rag'
 
 /* Ch4 Harness Engineering */
@@ -85,7 +84,7 @@ export const slides: ComponentType[] = [
   Slide01, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07,
   Slide08, Slide09, Slide10, Slide11,
   Slide12, Slide13, Slide14, Slide14aContextBridge,
-  Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21,
+  Slide15, Slide16, Slide17, Slide18, Slide19, Slide21,
   Slide22, Slide23, Slide24, Slide25, Slide26,
   Slide27, Slide28, Slide29,
   Slide30, Slide31, Slide32, Slide33, Slide34, Slide35, Slide36,
@@ -97,7 +96,7 @@ export const slideSlugs: string[] = [
   '01-cold-open', '02-survey-warmup', '03-eight-objections', '04-productivity-data', '05-metr-slower', '06-review-bottleneck', '07-summary-wrong-goal',
   '08-core-thesis', '09-amplifier', '10-three-level-spectrum', '11-vibe-coding-dead',
   '12-roi-cost-value', '13-data-bias-disclosure', '14-junior-ai-learning', '14a-context-bridge',
-  '15-jellyfish-pr-data', '16-context-concept', '17-context-window', '18-seven-components', '19-quality-equation', '20-few-shot', '21-rag',
+  '15-jellyfish-pr-data', '16-context-concept', '17-context-window', '18-seven-components', '19-quality-equation', '21-rag',
   '22-harness-evolution', '23-skill-definition', '24-skill-how-works', '25-skill-anatomy', '26-skill-trigger',
   '27-demo-dev-bug-fix', '28-demo-nondev-design', '29-demo-mixed-claude-md',
   '30-bad-vs-good', '31-ai-boundaries', '32-skill-atrophy', '33-when-not-to-use-ai', '34-data-sandbox-security', '35-guardrails', '36-hidden-quality-costs',
