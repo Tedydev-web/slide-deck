@@ -1,16 +1,42 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Figma, Terminal, Sparkles, Zap } from 'lucide-react'
 import SlideLayout from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { SlideSectionLabel } from '../components/slide-section-label'
 import { theme, gradients } from '../lib/theme'
 import { fadeUp, staggerContainer } from '../lib/animations'
 
+/*
+ * Concrete demo — ClaudeKit stack extracting design tokens from Figma:
+ *   Claude Code + figma-remote-mcp + design-system skill → tokens.ts
+ *
+ * Each step names the actual tool so dev audience can replicate.
+ */
 const workflowSteps = [
-  { vi: 'File Figma', kr: '피그마 파일' },
-  { vi: 'AI đọc design', kr: 'AI가 디자인 읽기' },
-  { vi: 'Xuất: tokens.json + tailwind.config', kr: '출력: 토큰 + 설정' },
-  { vi: 'Dev tích hợp', kr: '개발자 통합' },
+  {
+    icon: Figma,
+    title: 'Paste Figma URL',
+    titleKr: '피그마 URL 붙여넣기',
+    hint: 'figma.com/design/...',
+  },
+  {
+    icon: Terminal,
+    title: 'figma-remote-mcp',
+    titleKr: 'Figma MCP 서버',
+    hint: 'get_design_context()\nget_variable_defs()',
+  },
+  {
+    icon: Sparkles,
+    title: 'design-system skill',
+    titleKr: 'ClaudeKit 스킬',
+    hint: 'normalize → tokens',
+  },
+  {
+    icon: Zap,
+    title: 'Vite HMR',
+    titleKr: '라이브 프리뷰',
+    hint: 'tokens.ts\ntailwind.config.ts',
+  },
 ]
 
 export default function Slide28DemoNondevDesign() {
@@ -39,7 +65,7 @@ export default function Slide28DemoNondevDesign() {
             kr="디자인 토큰 추출"
             viStyle={{
               fontFamily: theme.fonts.display,
-              fontSize: 44,
+              fontSize: 42,
               fontWeight: 800,
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
@@ -54,11 +80,11 @@ export default function Slide28DemoNondevDesign() {
           initial="hidden"
           animate="visible"
           custom={2}
-          style={{ marginBottom: 32 }}
+          style={{ marginBottom: 18 }}
         >
           <BiText
-            vi="Figma → Tailwind config trong 15 phút"
-            kr="피그마 → 테일윈드 설정 15분"
+            vi="Claude Code + figma-remote-mcp + design-system skill → 15 phút"
+            kr="Claude Code + Figma MCP + 디자인 시스템 스킬 → 15분"
             viStyle={{
               fontFamily: theme.fonts.body,
               fontSize: 15,
@@ -68,80 +94,149 @@ export default function Slide28DemoNondevDesign() {
           />
         </motion.div>
 
-        {/* Workflow steps */}
+        {/* Live prompt example — concrete command, feels real */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={3}
+          style={{
+            background: theme.colors.bgDeep,
+            border: `1px solid ${theme.colors.border}`,
+            borderLeft: `3px solid ${theme.colors.accent}`,
+            borderRadius: 8,
+            padding: '12px 18px',
+            marginBottom: 22,
+            fontFamily: theme.fonts.mono,
+            fontSize: 13,
+            color: theme.colors.textSecondary,
+            lineHeight: 1.55,
+          }}
+        >
+          <span style={{ color: theme.colors.accent, marginRight: 8 }}>{'>'}</span>
+          Claude, trích design tokens từ{' '}
+          <span style={{ color: theme.colors.text }}>
+            figma.com/design/ABC123?node-id=1-2
+          </span>
+          , xuất ra <span style={{ color: theme.colors.accent }}>tokens.ts</span> + tailwind config
+        </motion.div>
+
+        {/* Workflow steps — now with real tool names + icons */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'stretch',
             gap: 0,
-            marginBottom: 32,
+            marginBottom: 20,
           }}
         >
-          {workflowSteps.map((step, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-              <motion.div
-                variants={fadeUp}
-                custom={i + 3}
-                style={{
-                  flex: 1,
-                  background: theme.colors.surface,
-                  border: `1px solid ${theme.colors.border}`,
-                  borderRadius: 10,
-                  padding: '18px 16px',
-                  textAlign: 'center',
-                }}
+          {workflowSteps.map((step, i) => {
+            const Icon = step.icon
+            return (
+              <div
+                key={i}
+                style={{ display: 'flex', alignItems: 'center', flex: 1 }}
               >
-                <span
+                <motion.div
+                  variants={fadeUp}
+                  custom={i + 4}
                   style={{
-                    fontFamily: theme.fonts.mono,
-                    fontSize: 11,
-                    color: theme.colors.accent,
-                    letterSpacing: '0.1em',
-                    display: 'block',
-                    marginBottom: 6,
+                    flex: 1,
+                    background: theme.colors.surface,
+                    border: `1px solid ${theme.colors.border}`,
+                    borderRadius: 10,
+                    padding: '14px 14px 16px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 6,
+                    minHeight: 108,
                   }}
                 >
-                  0{i + 1}
-                </span>
-                <BiText
-                  vi={step.vi}
-                  kr={step.kr}
-                  viStyle={{
-                    fontFamily: theme.fonts.body,
-                    fontSize: 13,
-                    fontWeight: 600,
-                    color: theme.colors.text,
-                    lineHeight: 1.4,
-                  }}
-                  krStyle={{ fontSize: '0.78em', marginTop: '0.2em' }}
-                />
-              </motion.div>
-              {i < workflowSteps.length - 1 && (
-                <div style={{ padding: '0 8px', flexShrink: 0 }}>
-                  <ArrowRight size={16} color={theme.colors.textMuted} />
-                </div>
-              )}
-            </div>
-          ))}
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Icon size={18} color={theme.colors.accent} strokeWidth={2} />
+                    <span
+                      style={{
+                        fontFamily: theme.fonts.mono,
+                        fontSize: 10,
+                        color: theme.colors.textMuted,
+                        letterSpacing: '0.12em',
+                      }}
+                    >
+                      0{i + 1}
+                    </span>
+                  </div>
+
+                  <div
+                    style={{
+                      fontFamily: theme.fonts.body,
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: theme.colors.text,
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {step.title}
+                  </div>
+
+                  <div
+                    lang="ko"
+                    style={{
+                      fontFamily: theme.fonts.korean,
+                      fontSize: 10,
+                      color: theme.colors.textMuted,
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {step.titleKr}
+                  </div>
+
+                  <div
+                    style={{
+                      fontFamily: theme.fonts.mono,
+                      fontSize: 10,
+                      color: theme.colors.accent,
+                      lineHeight: 1.4,
+                      marginTop: 'auto',
+                      whiteSpace: 'pre-line',
+                      opacity: 0.85,
+                    }}
+                  >
+                    {step.hint}
+                  </div>
+                </motion.div>
+
+                {i < workflowSteps.length - 1 && (
+                  <div style={{ padding: '0 6px', flexShrink: 0 }}>
+                    <ArrowRight size={14} color={theme.colors.textMuted} />
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </motion.div>
 
-        {/* Comparison before/after */}
+        {/* Before / After */}
         <div style={{ display: 'flex', gap: 20 }}>
-          {/* Before */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={8}
+            custom={9}
             style={{
               flex: 1,
               background: theme.colors.redDim,
               border: `1px solid ${theme.colors.red}`,
               borderRadius: 10,
-              padding: '20px 24px',
+              padding: '16px 22px',
             }}
           >
             <div
@@ -152,7 +247,7 @@ export default function Slide28DemoNondevDesign() {
                 color: theme.colors.red,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                marginBottom: 10,
+                marginBottom: 8,
               }}
             >
               BEFORE
@@ -162,27 +257,26 @@ export default function Slide28DemoNondevDesign() {
               kr="2–3일 디자이너 문서화 + 개발자 구현"
               viStyle={{
                 fontFamily: theme.fonts.body,
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: 600,
                 color: theme.colors.text,
-                lineHeight: 1.5,
+                lineHeight: 1.45,
               }}
               krStyle={{ fontSize: '0.78em', marginTop: '0.25em' }}
             />
           </motion.div>
 
-          {/* After */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={9}
+            custom={10}
             style={{
               flex: 1,
               background: theme.colors.greenDim,
               border: `1px solid ${theme.colors.green}`,
               borderRadius: 10,
-              padding: '20px 24px',
+              padding: '16px 22px',
             }}
           >
             <div
@@ -193,20 +287,20 @@ export default function Slide28DemoNondevDesign() {
                 color: theme.colors.green,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                marginBottom: 10,
+                marginBottom: 8,
               }}
             >
               AFTER
             </div>
             <BiText
-              vi="15 phút, consistent, no drift"
-              kr="15분, 일관성, 드리프트 없음"
+              vi="15 phút · consistent · zero drift"
+              kr="15분 · 일관성 · 드리프트 없음"
               viStyle={{
                 fontFamily: theme.fonts.body,
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: 600,
                 color: theme.colors.text,
-                lineHeight: 1.5,
+                lineHeight: 1.45,
               }}
               krStyle={{ fontSize: '0.78em', marginTop: '0.25em' }}
             />

@@ -14,13 +14,7 @@ export default function Slide21Rag() {
   return (
     <SlideLayout background={gradients.subtle}>
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '50px 80px' }}>
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="visible" custom={0}
-          style={{ fontFamily: theme.fonts.display, fontSize: 'clamp(70px, 9vw, 100px)', color: theme.colors.accentDim, lineHeight: 1, marginBottom: -8 }}
-        >
-          09
-        </motion.div>
-
+        {/* Corner page-number watermark now comes from SlideLayout globally */}
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible" custom={0.3}
           style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}

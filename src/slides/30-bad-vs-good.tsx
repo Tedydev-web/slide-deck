@@ -33,22 +33,7 @@ export default function Slide30BadVsGood() {
           padding: '50px 80px',
         }}
       >
-        {/* Large chapter numeral — decorative */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          style={{
-            fontFamily: theme.fonts.display,
-            fontSize: 'clamp(70px, 9vw, 100px)',
-            color: theme.colors.accentDim,
-            lineHeight: 1,
-            marginBottom: -8,
-          }}
-        >
-          12
-        </motion.div>
+        {/* Corner page-number watermark now comes from SlideLayout globally */}
 
         {/* Title bilingual — VN primary, KR secondary */}
         <motion.h2

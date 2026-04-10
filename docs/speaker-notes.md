@@ -1,7 +1,7 @@
-# Speaker Notes — AI Agent Workshop (v3 — Rehearsal Ready, 2026-04-10)
+# Speaker Notes — AI Agent Workshop (v3.1 — Rehearsal Ready, 2026-04-10)
 
-Bilingual VI-KR workshop, **47 slides** (S20 few-shot cut), ~55 min target + 10 min Q&A.
-First-person tech lead voice. Dev-first 60/40.
+Bilingual VI-KR workshop, **46 active slides** (S20 few-shot + S46 metrics permanently cut), ~55 min target + 10 min Q&A.
+First-person tech lead voice. Dev-first 60/40. 9 MEMORY HOOK phrases (was 8, added S47 identity vision).
 
 **Personas in audience:** Senior dev, Junior dev, Non-dev (Marketing/Design/HR), CTO, Security.
 **KR pronunciation note:** KR lines printed on slides — use them as cues. Phonetic guide in `[...]`.
@@ -28,20 +28,20 @@ Every slide has the same template. Read the fields in this order when rehearsing
 
 ---
 
-## 📋 Quick Reference Table — 47 slides
+## 📋 Quick Reference Table — 46 active slides (S20 + S46 cut)
 
 | Ch | Slides | Duration | Energy arc | Critical markers |
 |---|---|---|---|---|
 | Ch1 Hạ Phòng Thủ | 01–07 | 8 min | 🔥→⚡→🔥 | S01 opener, S07 reframe twist |
-| Ch2 Philosophy | 08–11 | 5 min | 🔥→🌊 | S08 core thesis (memorize) |
+| Ch2 Philosophy | 08–11 | 5.5 min | 🔥→🌊 | S08 core thesis + origin story (memorize) |
 | Ch2b Reality | 12–14a | 6 min | 🔥→⚡ | ⚠️ S12 CTO, S13 skeptic, S14 junior, S14a bridge |
 | Ch3 Context Eng | 15–19, 21 | 7 min | 🌊 (theory zone) | ⚠️ fatigue risk — see panel below |
 | Ch4 Harness Eng | 22–26 | 6 min | 🌊→⚡ | Compress if behind |
 | Ch5 Demos | 27–29 | 8 min | 🔥 peak | ⚠️ live demo risk — see fallback |
 | Ch6 Honest Truths | 30–36 | 8 min | 🌊 serious | ⚠️ S33, S34 skeptic + security |
 | Ch7 Use Cases | 37–41 | 6 min | ⚡ persona rotation | Give every persona a moment |
-| Ch8 Closing | 42–47 | 6 min | 🔥 finale | ⚠️ S42 CTO, S47 slow close |
-| **TOTAL** | **47** | **~55 min** | | + 10 min Q&A = **65 min** |
+| Ch8 Closing | 42–47 | 5.5 min | 🔥 finale | ⚠️ S42 CTO, S46 cut, S47 identity vision + slow close |
+| **TOTAL** | **46 active** | **~55 min** | | + 10 min Q&A = **65 min** |
 
 ---
 
@@ -255,6 +255,7 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 - **Left column:** cần đo (xanh) — đọc 2-3 items
 - **Right column:** đang đo (đỏ, xấu xí intentionally) — đọc sarcastically
 - **MEMORY HOOK:** *"Goal không phải viết nhiều code. Goal là tạo nhiều giá trị."*
+- **Bumper sticker #9 (drop nếu có dev skeptic trong audience):** *"Nhiều code ≠ Nhiều value."*
 
 **Transition:** *"Vậy goal thật sự là gì?"* [pause → S08 big reveal]
 
@@ -264,9 +265,20 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 **Arc position:** Act 2 — State thesis. Then stress-test against CTO/skeptic/junior persona.
 
-### S08 — core-thesis · 50s 🔥🔥 MOST IMPORTANT SLIDE
+### S08 — core-thesis · 80s 🔥🔥 MOST IMPORTANT SLIDE
 **Energy:** 🔥🔥 PEAK · **Stance:** dead center, body still, full stop
 **Audience is thinking:** *"OK, give me the thesis."*
+
+**Origin moment (30s — speaker MUST draft own story, template below):**
+> ⚠️ **Bạn phải tự viết đoạn này từ kinh nghiệm thật. Nếu không có story thật → BỎ QUA field này, dùng Hook trực tiếp. Forced story phá hủy ethos.**
+>
+> **Template 4 nhịp (fill in [brackets]):**
+> *[SETUP 10s]:* "Năm [20XX], tôi [role] tại [team/project]. AI coding tool mới ra, tôi [reaction: hype/skeptic/scared]."
+> *[TENSION 10s]:* "Tôi quyết định [action: thả rông / từ chối dùng / thử production]. Kết quả: [specific fail outcome]."
+> *[TURN 5s]:* "Sau đó tôi nhận ra: [insight]. Không phải vì AI dở. Mà vì [root cause — connect to thesis]."
+> *[LANDING 5s]:* "Đó là lý do tôi đứng đây. Và đó là lý do cho câu tiếp theo..."
+>
+> **Delivery:** stand still, slower pace, lower vocal pitch, eye contact 1 person. Pause 2s trước Hook.
 
 **Hook:** *"Trình mình ở đâu, trình AI ở đó."* [pause 3s — DO NOT rush]
 
@@ -295,6 +307,7 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 - Good system → better. Bad system → worse.
 - **MEMORY HOOK:** *"Nếu team chưa có process tốt, AI sẽ phóng đại bug, confusion, tech debt."*
 - Relate to audience: *"Bạn có process code review không? AI sẽ lộ ngay."*
+- **Bumper sticker #10 (drop cho mixed-persona audience để phá polarization):** *"Hãy để AI trở thành bạn đồng hành — không phải sự thay thế."*
 
 **Transition:** *"Nên câu hỏi không phải Chat vs Agentic..."*
 
@@ -396,6 +409,7 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 - **CONDITION — emphasize hard:** *"NHƯNG phải hỏi 'WHY'. Không hỏi → AI phá hủy khả năng học."*
 - **🎯 REFRAME #6 (verbatim):** *"AI không lấy đường sống junior. AI **đổi** đường. Junior nào sớm master AI tools + giữ nền tảng để phản biện AI → lợi thế cạnh tranh lớn."*
 - **MEMORY HOOK:** *"AI as mentor = accelerate. AI as shortcut = atrophy."*
+- **Bumper sticker #12 (drop khi junior defensive hoặc senior bash AI output):** *"Đừng có mặc định chê nữa — tìm cái hay mà học."*
 - Personal anecdote **optional**: share 1 junior case từ team của bạn nếu có
 
 **Read the room:**
@@ -670,7 +684,21 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 **Fallback:** `public/assets/demo-29-fallback.mp4`
 
-**Transition:** *"Xong demo. Giờ nói về sự thật."* [pause, walk back center, tone drops serious]
+**🌊 EMOTIONAL BRIDGE — MOST CRITICAL TRANSITION OF DECK (10s total):**
+
+> 1. **[Demo outcome still on screen]** Stop typing. Hands off keyboard. Face audience.
+> 2. **[0-3s] Silent stand still.** Let demo result breathe. Eye contact sweep — no words.
+> 3. **[3-5s] Walk slowly back to center.** 3-4 steps. Don't rush. Body language = "something changed".
+> 4. **[5-7s] Drink water visibly.** Không phải khát — là STAGE DEVICE. Audience resets cùng bạn.
+> 5. **[7-8s] Lower vocal pitch.** Breathe out audibly trước khi nói. Signal "different mode".
+> 6. **[8s] First line — quiet but firm:**
+>    *"OK. Các bạn vừa thấy AI chạy tốt. Giờ tôi phải nói mấy thứ ít ai nói — vì tôi không muốn các bạn về nhà với ảo tưởng."*
+> 7. **[Pause 2s]** Để "ảo tưởng" land.
+> 8. **[Walk to S30 position]:** *"Đây là sự thật thành thật."*
+>
+> **⚠️ Nếu rush bridge này, bạn mất Ch6 hoàn toàn.** Senior dev + security lead cần gravitas shift để absorb honest truths.
+> **DO:** Trust the pause. 8 giây feels dài cho presenter, bình thường cho audience.
+> **DO NOT:** Joke để break tension. Nhìn laptop. Nói trong lúc walk.
 
 ---
 
@@ -905,8 +933,9 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 **Hook:** *"4 mũi nhọn: review cost, testing, feedback loop, right thing."*
 
 **Body:**
-- 4 cards walk: reduce review cost → boost testing → shorten feedback → ship right thing
-- **MEMORY HOOK:** *"Business strategy. Apply to all personas."*
+- Walk 4 cards FAST: review → testing → feedback → ship
+- **Thread to S42:** *"Nhớ 90-day pilot ở S42? 4 mũi nhọn này = 4 metric bạn track trong pilot."*
+- **MEMORY HOOK:** *"Business strategy. Persona-neutral. Pilot-measurable."*
 
 **Transition:** *"Best practices khi dùng AI."*
 
@@ -919,8 +948,9 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 **Hook:** *"4 practices: specs, examples, format, checklist."*
 
 **Body:**
-- *"Dùng như prompt rules. Giống code style guide."*
-- **MEMORY HOOK:** *"Prompt rules = code style guide. Make it shareable."*
+- *"4 practices = dùng như prompt rules. Giống code style guide."*
+- **Reuse principle (absorbed S46):** *"Write once, reuse many — nhưng phải maintain. Không free."*
+- **MEMORY HOOK:** *"Prompt rules = code style guide. Shareable, maintainable, versioned."*
 
 **Transition:** *"Built-in vs custom tools."*
 
@@ -936,25 +966,17 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 - Show both columns
 - **MEMORY HOOK:** *"Built-in = quick start. Custom = differentiation."*
 
-**Transition:** *"Và metric quan trọng..."*
+**Transition:** *"Start simple. Grow custom khi thấy pain. Và điều cuối cùng tôi muốn nói..."*
 
 ---
 
-### S46 — takeaway-metrics · 45s 🌊
-**Energy:** 🌊 low · **Stance:** center
-**Audience is thinking:** *"Metrics to track — note taking."*
-
-**Hook:** *"3 metric: 1× write, N+ reuse, minimize copy-paste."*
-
-**Body:**
-- **Caveat:** *"Reuse requires maintenance. Not free."*
-- **MEMORY HOOK:** *"Write once, reuse many. But maintain."*
-
-**Transition:** *"Close."*
+### ~~S46 — takeaway-metrics~~ · ❌ PERMANENT CUT (v3.1)
+> **Cut rationale:** "Write once, reuse many" insight absorbed into S44 best practices. Slide still exists in React source (`46-takeaway-metrics.tsx`) — remove component in separate phase.
+> **If accidentally navigated to during presentation:** Skip immediately, say nothing, advance to S47.
 
 ---
 
-### S47 — closing-cta · 60s 🔥🔥 FINALE · CALLBACK #4
+### S47 — closing-cta · 85s 🔥🔥 FINALE · CALLBACK #4
 **Energy:** 🔥🔥 peak but **SLOW** · **Stance:** dead center, body still
 **Audience is thinking:** *"Give me the one takeaway."*
 
@@ -966,8 +988,20 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 **Body (slow, paced — 1 line per beat):**
 - **Subtitle:** *"Lợi thế không nằm ở tốc độ viết code — mà ở tốc độ biến code thành giá trị."*
+- **🆕 IDENTITY VISION (20-30s — chậm hơn subtitle, 1 dòng per breath, vocal pitch thấp hơn 1 bậc, warm):**
+  > *"6 tháng nữa, bạn sẽ nhìn lại hôm nay.*
+  > *Bạn sẽ là 1 trong 2 loại người: người kể lại 'tôi từng sợ AI'; hoặc người kể lại 'tôi từng chỉ biết prompt'.*
+  > *Loại nào cũng OK.*
+  > *Nhưng loại thứ 3 — người biến AI thành đòn bẩy cho judgment của chính mình — đó là loại đáng để trở thành."*
+  >
+  > **[Pause 3s sau "trở thành" — để câu thấm. Eye contact sweep 3 zones. Rồi CTA.]**
 - **CTA:** *"Giá trị > Số lượng."*
 - **MEMORY HOOK:** *"Xây harness. Đừng chỉ prompt."*
+
+**🎁 Optional closing bumper stickers (pick MAX 1 — drop right before Q&A if energy allows):**
+- **#11 Proactive mindset (activation):** *"Có thách thức thì sẽ có cơ hội."* → drop nếu audience energy tích cực, muốn đẩy mọi người rời talk với tâm thế chủ động
+- **#13 Collaborative frame:** *"Community > Competition."* → drop nếu audience mixed, muốn tạo không khí học cùng nhau thay vì đua nhau hoảng loạn
+- **Rule:** Nếu đã dùng identity vision (default S47) + CTA "Giá trị > Số lượng" → bumper sticker ở đây là TÙY CHỌN, không bắt buộc. Quá nhiều punchline cuối = diluted impact.
 
 **Q&A:** *"Câu hỏi? Tôi share link deck + speaker notes sau session."*
 
@@ -986,19 +1020,19 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 ---
 
-## Timing Checklist (total ~55 min, 47 slides)
+## Timing Checklist (total ~55 min, 46 active slides)
 
 | Chapter | Slides | Target | Notes |
 |---|---|---|---|
 | Ch1 Hạ Phòng Thủ | 01-07 (7) | 8 min | Don't rush S13 (skeptic moment coming Ch2) |
-| Ch2 Philosophy+Reality | 08-14a (8) | 10 min | ⚠️ S12/S13/S14 PIVOTAL — spend time |
+| Ch2 Philosophy+Reality | 08-14a (8) | 10.5 min | ⚠️ S08 +30s origin story, S12/S13/S14 PIVOTAL |
 | Ch3 Context Eng | 15-19, 21 (6) | **7 min** | 🚨 THEORY ZONE — see panel above |
 | Ch4 Harness Eng | 22-26 (5) | 6 min | Can compress if behind |
 | Ch5 Demos | 27-29 (3) | 8 min | HARD TIMEBOX — 3+2+2 min max |
 | Ch6 Honest Truths | 30-36 (7) | 8 min | Skeptic wins here |
 | Ch7 Use Cases | 37-41 (5) | 6 min | 1 min each, hit every persona |
-| Ch8 Rollout+Closing | 42-47 (6) | 6 min | S42 for CTO, S47 slow close |
-| **Total** | **47** | **~55 min** | + 10 min Q&A = **65 min** |
+| Ch8 Rollout+Closing | 42-47 (5 active, S46 cut) | 5.5 min | S42 CTO, S47 identity vision + slow close |
+| **Total** | **46 active** | **~55 min** | + 10 min Q&A = **65 min** |
 
 **Budget buffer:** 5 min slack built in. If you run late → cut emergency tier 1 first (see below).
 
@@ -1007,11 +1041,11 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 ## Emergency Cuts (if running 10+ min behind)
 
 - **Tier 1 (cut first):** S21 (RAG — explain inline trong S18), S45 (builtin vs custom)
-- **Tier 2 (cut second):** S44 (best practices), S46 (metrics — subsumed by S47)
+- **Tier 2 (cut second):** S44 (best practices — but reuse principle now here from S46)
 - **Tier 3 (cut third):** S32 (atrophy — mention in Q&A)
 - **NEVER cut:** S01, S08, S12, S13, S14, S14a, S27, S29, S33, S34, S42, S47
 
-**Note:** S20 few-shot đã cut permanent (v3). Đừng cut S21 RAG tier 1 nếu demo CLAUDE.md S29 sẽ gãy narrative — dùng tier 2 thay thế.
+**Note:** S20 few-shot đã cut permanent (v3). S46 metrics đã cut permanent (v3.1, absorbed into S44). Đừng cut S21 RAG tier 1 nếu demo CLAUDE.md S29 sẽ gãy narrative — dùng tier 2 thay thế.
 
 ---
 
@@ -1020,7 +1054,10 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 ### T-7 days
 - [ ] Rehearse full deck 1 lần với timer — note slides chạy quá thời gian
 - [ ] Native KR review for S01, S08, S12, S13, S14, S27, S33, S34, S42, S47
-- [ ] Memorize 8 MEMORY HOOK phrases (S01, S07, S08, S13, S14, S29, S33, S47)
+- [ ] Memorize 9 MEMORY HOOK phrases (S01, S07, S08, S13, S14, S29, S33, S47, S47-identity-vision)
+- [ ] Rehearse S08 origin story 3 times — cut if over 30s or feels forced
+- [ ] Rehearse S29 → Ch6 emotional bridge 3 times with stopwatch — target 10s, slow down if < 8s
+- [ ] Rehearse S47 identity vision — 20-30s, 1 line per breath, eye contact sweep
 
 ### T-1 day
 - [ ] Record 3 fallback videos (S27, S28, S29) — 1-2 hour effort, see `docs/demo-recording-script.md`
@@ -1049,6 +1086,8 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 4. **Energy arc matters more than content.** Theory zone is the risk — lift energy actively.
 5. **Callback spine = dialogue illusion.** Use all 4 callbacks (S13, S29, S33, S47) or audience feels monologue.
 6. **The MEMORY HOOK phrases are the only verbatim parts.** Rest = improv around bullet points.
+7. **S29 → Ch6 bridge is the most fragile 10 seconds of the deck.** Rehearse it like a choreographed move.
+8. **S08 origin + S47 identity vision = emotional bookends.** If you cut one, keep the other. Don't cut both.
 
 ---
 
@@ -1064,6 +1103,57 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 **Mục đích:** Khi dev skeptic pushback về AI/vibe coding, đừng cãi. Dùng reframe mềm để đổi góc nhìn — không công kích.
 
 **Nguyên tắc vàng:** *"Thừa nhận nỗi khó chịu của dev là có cơ sở, rồi mới bẻ góc nhìn."*
+
+**How to use (3 modes):**
+- **Pre-workshop:** Memorize reframes dùng Reverse Index (by slide)
+- **During talk:** Dùng Cross-Reference Matrix (by pushback phrase)
+- **In Q&A:** Scan Cross-Reference column 1, jump to reframe #
+
+### 🗺️ Cross-Reference Matrix — Pushback → Reframe
+
+**Live lookup during Q&A or mid-talk pushback.** Scan column 1 → jump to reframe number.
+
+| Pushback trigger | Pushback phrase likely | Reframe # | Slides likely to trigger |
+|---|---|---|---|
+| Dev skeptic anti-AI | "AI không reliable" / "Tôi không dùng AI" | **#1** | S03, S11, S13, Q&A |
+| Senior devaluation | "AI sẽ thay thế senior" / "Nghề dev mất giá" | **#2**, **#7** | S13, S14, S32, Q&A |
+| Productivity obsession | "Nhiều PR hơn = tốt hơn" | **#3** | S04, S06, S36, S37 |
+| Vibe coding bash | "Vibe coding phá nghề" | **#4**, **#8** | S11, S33, Q&A |
+| Junior defensive | "Tôi chưa giỏi đủ để dùng AI" | **#5** | S14, S14a, Q&A |
+| Junior fear-of-replacement | "AI lấy job junior" | **#6** | S14, S41, Q&A |
+| Senior under attack | "Các bác chống AI là lạc hậu" | **#7** | S13, S32, Q&A |
+| Hype pushback | "AI làm được mọi thứ rồi" | **#8** | S05, S11, S33, Q&A |
+| Prompt fetish | "Prompt engineering là tất cả" | **#9** | S16, S19, S22, S44 |
+| Binary AI-or-human | "Phải chọn AI hoặc người" | **#10** | S08, S09, S33, Q&A |
+
+### 📍 Reverse Index — Slide → Reframes Available
+
+**Pre-rehearsal lookup: "Nếu audience pushback ở slide X, tôi có reframes nào?"**
+
+| Slide | Topic | Reframes available |
+|---|---|---|
+| S03 | 8 objections | #1 (anti-AI), #8 (hype) |
+| S04/S06 | Productivity data | #3 (quantity vs quality) |
+| S05 | METR slower | #8 (conditional leverage) |
+| S08/S09 | Thesis + amplifier | #10 (AI + human + process) |
+| S11 | Vibe coding | #4 (sandbox), #8 (conditional) |
+| S13 | Bias disclosure | #1, #2, #7 (senior value) |
+| S14/S14a | Junior AI learning | #5 (sandbox first), #6 (change not end) |
+| S32 | Skill atrophy | #2 (real value), #7 (senior skepticism) |
+| S33 | When NOT to use | #4 (vibe sandbox), #8 (conditional) |
+| S41 | HR use case | #6 (role evolution) |
+| S44 | Best practices | #9 (process > prompt) |
+| **Q&A** | Anything | **All 10 available** |
+
+### ⚠️ Reframe Delivery Rules (memorize)
+
+1. **Acknowledge first, reframe second.** *"Đồng ý với phần X, nhưng..."* — never "Không, bạn sai"
+2. **1 reframe per pushback.** Don't stack. Over-delivery = defensive.
+3. **Pause 2s before reframing.** Creates authority. Rushing = defensive.
+4. **Reframe = LỜI MÌNH, không cite.** Audience trust speaker, không trust tác giả trích.
+5. **If no reframe fits →** *"Câu hỏi hay, tôi ghi lại, cuối session trả lời đầy đủ hơn."* Buying time > bad reframe.
+
+---
 
 ### Reframe #1 — Anti-AI → Anti-vô-trách-nhiệm
 > *"Dev không ghét AI. Dev ghét việc một người giao trách nhiệm cho máy rồi bắt người khác gánh hậu quả."*
@@ -1127,9 +1217,11 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 ---
 
-## 💬 Appendix B — Dev-Targeted Closing (Alternative for S47)
+## 💬 Appendix B — Dev-Targeted Closing (Alternative framing for S47)
 
-**When to use:** Khi audience dev chiếm ≥70% và bạn cảm thấy closing S47 mặc định ("Xây harness. Đừng chỉ prompt.") không chạm đủ sâu vào tâm lý dev audience.
+> **v3.1 note:** S47 default giờ có identity vision (future-self framing). Appendix B dùng **craft-identity framing** thay thế — chọn 1 trong 2, không dùng cả 2.
+
+**When to use:** Khi audience dev chiếm ≥70% và bạn muốn dùng craft-identity framing thay vì future-self identity vision ở S47 default.
 
 **How to use:** Sau khi đọc MEMORY HOOK "Xây harness. Đừng chỉ prompt." (giữ nguyên), chuyển sang speech sau trong ~45s:
 
@@ -1156,11 +1248,13 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 ---
 
-## 📌 Appendix C — 8 Bumper Sticker Quotes (drop anytime)
+## 📌 Appendix C — 13 Bumper Sticker Quotes (drop anytime)
 
 **When to use:** Các câu ngắn, memorable, drop bất kỳ lúc nào audience cần "đập chấp niệm" — đặc biệt hiệu quả trong Q&A hoặc khi có pushback.
 
 **How to use:** Quote verbatim, đọc chậm, pause sau mỗi câu. Không quote nhiều cùng lúc — 1 quote per objection.
+
+### Nhóm 1 — Craft & Accountability (8 câu)
 
 1. **Trách nhiệm:** *"Điều đáng sợ không phải AI viết code. Điều đáng sợ là con người ký tên vào thứ mình không hiểu."*
 
@@ -1178,12 +1272,30 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 8. **Standards:** *"AI không phải lý do để bỏ chuẩn kỹ thuật. AI là lý do để chuẩn kỹ thuật trở nên **quan trọng hơn**."*
 
+### Nhóm 2 — Mindset & Community (5 câu, v3.1 added)
+
+9. **Output vs Value (anti-hype):** *"Nhiều code ≠ Nhiều value."*
+   > **When to use:** Pushback "AI làm ra nhiều PR hơn = tốt hơn". Reference slide: S04/S06/S37.
+
+10. **AI partnership (anti-polarization):** *"Hãy để AI trở thành bạn đồng hành — không phải sự thay thế."*
+    > **When to use:** Khi audience chia rẽ "AI vs con người". Phá cả 2 cực đoan: sợ AI và thờ AI. Reference slide: S09, S32, Q&A.
+
+11. **Proactive mindset (closing activation):** *"Có thách thức thì sẽ có cơ hội."*
+    > **When to use:** Closing hoặc Q&A wrap. Giúp audience rời buổi talk với tâm thế chủ động, không phòng thủ. Reference slide: S47 (alt closing), Q&A final.
+
+12. **Learning posture (anti-dismissal):** *"Đừng có mặc định chê nữa, tìm cái hay mà học."*
+    > **When to use:** Pushback "AI làm ra toàn rác". Phá định kiến, chuyển thái độ từ phán xét sang quan sát & học hỏi. Reference slide: S11, S14, S32, Q&A.
+
+13. **Community > Competition (collaborative frame):** *"Community > Competition."*
+    > **When to use:** Khi muốn tạo không khí tích cực ở closing — AI không nhất thiết đẩy mọi người vào cuộc đua hoảng loạn; nó mở ra cách học cùng nhau nhanh hơn. Reference slide: S47 alt, Q&A framing.
+
 ### Delivery tips
 
-- **Don't dump all 8.** Pick 1-2 phù hợp với câu hỏi cụ thể.
+- **Don't dump all 13.** Pick 1-2 phù hợp với câu hỏi cụ thể.
 - **Memorize verbatim.** Bumper stickers chỉ mạnh khi đọc mượt, không vấp.
 - **Pause after.** Để câu kết thúc thấm, không rush transition.
 - **Eye contact.** Nhìn trực diện người vừa hỏi khi trả lời bằng quote.
+- **Nhóm 1 (craft) cho pushback dev-skeptic. Nhóm 2 (mindset) cho closing + audience mixed persona.**
 
 ---
 

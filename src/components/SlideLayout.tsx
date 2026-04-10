@@ -1,13 +1,37 @@
-import type { ReactNode } from 'react'
+import { createContext, useContext, type ReactNode } from 'react'
 import { theme } from '../lib/theme'
+import { AutoFitFrame } from './slide-overflow-guard'
+
+/**
+ * Provides the current slide index + total to every SlideLayout so it can
+ * render the corner page-number watermark automatically. App.tsx sets this.
+ */
+export const SlideIndexContext = createContext<{ index: number; total: number } | null>(null)
 
 interface Props {
   children: ReactNode
   background?: string
+  /**
+   * Deprecated: grid is now always rendered to match ai-code-vs-profit.
+   * Prop kept for backward compat — has no effect.
+   */
   showGrid?: boolean
+  /**
+   * Override the auto page number (e.g. hide it on the cover slide).
+   * Pass `null` to hide entirely, or a string like '08' to override.
+   */
+  pageNumber?: string | null
 }
 
-export default function SlideLayout({ children, background, showGrid = false }: Props) {
+export default function SlideLayout({ children, background, pageNumber }: Props) {
+  const ctx = useContext(SlideIndexContext)
+
+  // Auto page number from context → zero-padded 2-digit like original
+  const autoNumber =
+    ctx != null ? String(ctx.index + 1).padStart(2, '0') : null
+  const displayNumber =
+    pageNumber === null ? null : pageNumber ?? autoNumber
+
   return (
     <div
       style={{
@@ -20,16 +44,57 @@ export default function SlideLayout({ children, background, showGrid = false }: 
         color: theme.colors.text,
       }}
     >
-      {showGrid && <GridOverlay />}
-      {children}
+      {/* Grid pattern — exact match to ai-code-vs-profit: 60px squares, 0.02 white */}
+      <GridOverlay />
+
+      {/* Corner watermark number — pixel-perfect match to original PH component */}
+      {displayNumber != null && <PageNumberWatermark number={displayNumber} />}
+
+      {/*
+        AutoFitFrame is the safety net — no-op when content fits 720px,
+        scales down uniformly when it overflows. Dev-mode badge flags any
+        scaled slide so you can hand-tune it.
+      */}
+      <AutoFitFrame width={theme.slide.width} height={theme.slide.height}>
+        {children}
+      </AutoFitFrame>
     </div>
   )
 }
 
 /**
- * Subtle 60px grid overlay — matches ai-code-vs-profit texture.
+ * Huge subtle page number in top-right corner. Exact copy of the original
+ * `ai-code-vs-profit` PH component — same font, size, color, position.
+ * Decorative only: no pointer events, not selectable.
  */
-export function GridOverlay({ opacity = 0.03 }: { opacity?: number }) {
+function PageNumberWatermark({ number }: { number: string }) {
+  return (
+    <div
+      aria-hidden
+      style={{
+        position: 'absolute',
+        top: 40,
+        right: 60,
+        fontFamily: theme.fonts.display,
+        fontWeight: 800,
+        fontSize: 'clamp(6rem, 15vw, 12rem)',
+        color: 'rgba(255, 255, 255, 0.03)',
+        lineHeight: 1,
+        userSelect: 'none',
+        pointerEvents: 'none',
+        zIndex: 1,
+      }}
+    >
+      {number}
+    </div>
+  )
+}
+
+/**
+ * 60px grid overlay — pixel-perfect match to ai-code-vs-profit texture.
+ * Default opacity 0.02 matches the original's `rgba(255,255,255,0.02)` value.
+ */
+export function GridOverlay({ opacity = 0.02 }: { opacity?: number }) {
   return (
     <div
       aria-hidden

@@ -1,92 +1,168 @@
 import { motion } from 'framer-motion'
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  Cell, LabelList, ResponsiveContainer,
+} from 'recharts'
 import SlideLayout, { Attribution } from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { SlideSectionLabel } from '../components/slide-section-label'
-import { DataBar } from '../components/data-bar'
-import { theme, gradients } from '../lib/theme'
-import { fadeUp } from '../lib/animations'
+import { theme } from '../lib/theme'
+import { fadeUp, staggerContainer } from '../lib/animations'
 
-const barData = [
-  { label: 'Ít áp dụng AI', labelKr: 'AI 도입 낮음', value: 0.65, display: '0.65x', muted: true },
-  { label: 'Áp dụng AI nhiều', labelKr: 'AI 도입 높음', value: 2.5, display: '2.5x' },
+/* Exact data from ai-code-vs-profit original — 1× vs ~2× */
+const chartData = [
+  { group: 'Ít áp dụng AI', prs: 1, label: '1×' },
+  { group: 'Áp dụng AI nhiều', prs: 2, label: '~2×' },
 ]
+
+const CHART = {
+  accent: '#FF5722',
+  accentDim: 'rgba(255, 87, 34, 0.35)',
+  gridColor: 'rgba(255, 255, 255, 0.06)',
+  tickColor: 'rgba(255, 255, 255, 0.5)',
+}
 
 export default function Slide15JellyfishPrData() {
   return (
-    <SlideLayout background={gradients.deep}>
-      <div
+    <SlideLayout>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
         style={{
-          width: '100%',
-          height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          padding: '60px 100px',
+          height: '100%',
+          padding: '60px 80px',
         }}
       >
         <SlideSectionLabel label="SỰ THẬT #1 — XÁC NHẬN THÊM" labelKr="사실 #1 — 추가 확인" />
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          style={{ marginTop: 24, marginBottom: 12 }}
-        >
+        <motion.div variants={fadeUp} custom={1} style={{ marginTop: 12 }}>
           <BiText
             vi="Gấp đôi PR mỗi người khi áp dụng AI nhiều"
             kr="AI를 많이 도입하면 PR이 2배"
             viStyle={{
               fontFamily: theme.fonts.display,
-              fontSize: 46,
               fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-              color: theme.colors.text,
+              fontSize: 40,
+              lineHeight: 1.2,
+              textAlign: 'left' as const,
+              marginBottom: 8,
             }}
-            krStyle={{ fontSize: '0.6em', marginTop: '0.4em' }}
+            krStyle={{ fontSize: '0.55em', marginTop: '0.3em' }}
           />
         </motion.div>
 
-        <motion.div
+        <motion.p
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
           custom={2}
-          style={{ marginBottom: 56 }}
+          style={{
+            fontSize: 14,
+            color: theme.colors.textMuted,
+            textAlign: 'left',
+            marginBottom: 32,
+          }}
         >
-          <BiText
-            vi="Jellyfish — hơn 700 công ty, 200,000 kỹ sư, 20 triệu pull request"
-            kr="제리피시 — 700여 개 회사, 20만 명의 엔지니어, 2천만 PR"
-            viStyle={{
-              fontFamily: theme.fonts.mono,
-              fontSize: 13,
-              color: theme.colors.textMuted,
-              letterSpacing: '0.06em',
-            }}
-            krStyle={{ fontSize: '0.85em', marginTop: '0.35em' }}
-          />
-        </motion.div>
+          Jellyfish — hơn 700 công ty, 200.000 kỹ sư, 20 triệu pull request
+        </motion.p>
 
+        {/* Recharts vertical bar chart — exact match to original */}
         <motion.div
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
           custom={3}
           style={{ flex: 1, display: 'flex', alignItems: 'center' }}
         >
-          <DataBar
-            data={barData}
-            maxValue={3}
-            barHeight={56}
-            labelWidth={200}
-            labelGap={10}
-            labelAlign="left"
-            style={{ width: '92%', maxWidth: 930 }}
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={chartData} barSize={100}>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke={CHART.gridColor}
+                vertical={false}
+              />
+              <XAxis
+                dataKey="group"
+                tick={{
+                  fill: CHART.tickColor,
+                  fontSize: 16,
+                  fontFamily: theme.fonts.body,
+                }}
+                axisLine={{ stroke: CHART.gridColor }}
+                tickLine={false}
+              />
+              <YAxis
+                domain={[0, 2.5]}
+                tick={{ fill: CHART.tickColor, fontSize: 14 }}
+                axisLine={false}
+                tickLine={false}
+                tickFormatter={(v: number) => `${v}×`}
+              />
+              <Bar dataKey="prs" radius={[4, 4, 0, 0]} animationDuration={1200}>
+                <Cell fill={CHART.accentDim} />
+                <Cell fill={CHART.accent} />
+                <LabelList
+                  dataKey="label"
+                  position="top"
+                  style={{
+                    fill: '#fff',
+                    fontSize: 28,
+                    fontWeight: 800,
+                    fontFamily: theme.fonts.display,
+                  }}
+                  offset={12}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </motion.div>
+
+        <motion.div variants={fadeUp} custom={4}>
+          <SourceLink
+            href="https://www.businessinsider.com/ai-coding-boom-more-software-shipped-no-hit-quality-2026-3"
+            label="Jellyfish via Business Insider (2026)"
           />
         </motion.div>
-      </div>
+      </motion.div>
 
       <Attribution>SOURCE: JELLYFISH VIA BUSINESS INSIDER (2026)</Attribution>
     </SlideLayout>
+  )
+}
+
+function SourceLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-interactive="true"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 6,
+        fontSize: 14,
+        color: theme.colors.textMuted,
+        textDecoration: 'underline',
+        textUnderlineOffset: 3,
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={12}
+        height={12}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M15 3h6v6" />
+        <path d="M10 14 21 3" />
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      </svg>
+      {label}
+    </a>
   )
 }

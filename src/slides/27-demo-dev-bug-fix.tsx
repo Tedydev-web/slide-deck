@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Clock } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import SlideLayout from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { SlideSectionLabel } from '../components/slide-section-label'
-import { theme, gradients } from '../lib/theme'
 import { fadeUp, staggerContainer } from '../lib/animations'
+import { gradients, theme } from '../lib/theme'
 
 // ---- 3-step RPI workflow cards ----------------------------------------
 type PhaseCode = 'R' | 'P' | 'I'
@@ -20,7 +20,7 @@ interface PhaseStep {
 const steps: PhaseStep[] = [
   { code: 'R', label: 'Research', vi: 'Đọc error log, trace code path', kr: '에러 로그 읽기' },
   { code: 'P', label: 'Plan', vi: 'Xác định root cause + fix strategy', kr: '근본 원인 + 수정 전략' },
-  { code: 'I', label: 'Implement', vi: 'Fix + test + verify', kr: '수정 + 테스트 + 검증' },
+  { code: 'I', label: 'Implement', vi: 'Fix + test + verify', kr: '수정 + 테스트 + 검증' }
 ]
 
 // ---- Terminal lines for the typewriter demo ---------------------------
@@ -38,14 +38,14 @@ const terminalLines: TerminalLine[] = [
   { prefix: '→', text: 'Tracing call chain...', accent: false, phase: 'R' },
   { prefix: '→', text: 'Root cause: missing null check', accent: false, phase: 'P' },
   { prefix: '→', text: 'Applied fix', accent: true, phase: 'I' },
-  { prefix: '→', text: 'Tests pass (12/12) ✓', accent: true, phase: 'I' },
+  { prefix: '→', text: 'Tests pass (12/12) ✓', accent: true, phase: 'I' }
 ]
 
 // ---- Timing -----------------------------------------------------------
-const CHAR_DELAY_MS = 24       // per-character cadence (faster than S26 for snappier demo)
+const CHAR_DELAY_MS = 24 // per-character cadence (faster than S26 for snappier demo)
 const INTER_LINE_PAUSE_MS = 180 // pause between lines
 const AUTO_START_DELAY_MS = 650 // wait for entrance stagger before typewriter kicks in
-const LOOP_PAUSE_MS = 2500     // how long to hold the done state before looping back
+const LOOP_PAUSE_MS = 2500 // how long to hold the done state before looping back
 
 export default function Slide27DemoDevBugFix() {
   // -1 = not started, 0..5 = currently typing that line, 6 = done
@@ -164,7 +164,7 @@ export default function Slide27DemoDevBugFix() {
   return (
     <SlideLayout background={gradients.deep}>
       {/* LIVE badge */}
-      <div
+      {/* <div
         style={{
           position: 'absolute',
           top: 36,
@@ -181,7 +181,7 @@ export default function Slide27DemoDevBugFix() {
         }}
       >
         LIVE
-      </div>
+      </div> */}
 
       <div
         style={{
@@ -189,47 +189,41 @@ export default function Slide27DemoDevBugFix() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          padding: '52px 80px 48px',
+          padding: '52px 80px 48px'
         }}
       >
-        <SlideSectionLabel label="DEMO 1 · DEV" labelKr="데모 1 · 개발" />
+        <SlideSectionLabel label='DEMO 1 · DEV' labelKr='데모 1 · 개발' />
 
         <motion.div
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
+          initial='hidden'
+          animate='visible'
           custom={1}
           style={{ marginTop: 14, marginBottom: 6 }}
         >
           <BiText
-            vi="Sửa Bug Lúc Nửa Đêm"
-            kr="심야 버그 수정"
+            vi='Sửa Bug Lúc Nửa Đêm'
+            kr='심야 버그 수정'
             viStyle={{
               fontFamily: theme.fonts.display,
               fontSize: 44,
               fontWeight: 800,
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
-              color: theme.colors.text,
+              color: theme.colors.text
             }}
             krStyle={{ fontSize: '0.52em', marginTop: '0.3em' }}
           />
         </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={2}
-          style={{ marginBottom: 28 }}
-        >
+        <motion.div variants={fadeUp} initial='hidden' animate='visible' custom={2} style={{ marginBottom: 28 }}>
           <BiText
-            vi="Bug report → Root cause → Fix → Test — 15 phút"
-            kr="버그 리포트 → 근본 원인 → 수정 → 테스트 — 15분"
+            vi='Bug report → Root cause → Fix → Test — 15 phút'
+            kr='버그 리포트 → 근본 원인 → 수정 → 테스트 — 15분'
             viStyle={{
               fontFamily: theme.fonts.body,
               fontSize: 15,
-              color: theme.colors.textSecondary,
+              color: theme.colors.textSecondary
             }}
             krStyle={{ fontSize: '0.78em', marginTop: '0.2em' }}
           />
@@ -238,8 +232,8 @@ export default function Slide27DemoDevBugFix() {
         {/* 3-step RPI workflow cards — sync with terminal phase */}
         <motion.div
           variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
+          initial='hidden'
+          animate='visible'
           style={{ display: 'flex', gap: 16, marginBottom: 24 }}
         >
           {steps.map((s, i) => {
@@ -263,7 +257,7 @@ export default function Slide27DemoDevBugFix() {
                     : 'none',
                   transform: isPhaseActive ? 'translateY(-2px)' : 'translateY(0)',
                   transition:
-                    'background 400ms ease-out, border-color 400ms ease-out, box-shadow 400ms ease-out, transform 400ms ease-out',
+                    'background 400ms ease-out, border-color 400ms ease-out, box-shadow 400ms ease-out, transform 400ms ease-out'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -274,7 +268,7 @@ export default function Slide27DemoDevBugFix() {
                       fontWeight: 900,
                       color: theme.colors.accent,
                       textShadow: isPhaseActive ? `0 0 10px ${theme.colors.accent}` : 'none',
-                      transition: 'text-shadow 400ms ease-out',
+                      transition: 'text-shadow 400ms ease-out'
                     }}
                   >
                     {s.code}
@@ -285,7 +279,7 @@ export default function Slide27DemoDevBugFix() {
                       fontSize: 14,
                       fontWeight: 700,
                       color: theme.colors.text,
-                      letterSpacing: '0.04em',
+                      letterSpacing: '0.04em'
                     }}
                   >
                     {s.label}
@@ -298,7 +292,7 @@ export default function Slide27DemoDevBugFix() {
                     fontFamily: theme.fonts.body,
                     fontSize: 13,
                     color: theme.colors.textSecondary,
-                    lineHeight: 1.45,
+                    lineHeight: 1.45
                   }}
                   krStyle={{ fontSize: '0.78em', marginTop: '0.15em' }}
                 />
@@ -312,37 +306,29 @@ export default function Slide27DemoDevBugFix() {
           {/* Terminal — auto-typewriter on mount */}
           <motion.div
             variants={fadeUp}
-            initial="hidden"
-            animate="visible"
+            initial='hidden'
+            animate='visible'
             custom={7}
             style={{
               flex: 1,
               background: theme.colors.bgDeep,
-              border: `1px solid ${
-                isRunning ? theme.colors.accent : theme.colors.borderStrong
-              }`,
+              border: `1px solid ${isRunning ? theme.colors.accent : theme.colors.borderStrong}`,
               borderRadius: 10,
               padding: '18px 22px',
               fontFamily: theme.fonts.mono,
               fontSize: 13,
               lineHeight: 1.7,
               minHeight: 180,
-              boxShadow: isRunning
-                ? `0 0 24px ${theme.colors.accent}33, 0 0 48px ${theme.colors.accent}11`
-                : 'none',
-              transition: 'border-color 400ms ease-out, box-shadow 400ms ease-out',
+              boxShadow: isRunning ? `0 0 24px ${theme.colors.accent}33, 0 0 48px ${theme.colors.accent}11` : 'none',
+              transition: 'border-color 400ms ease-out, box-shadow 400ms ease-out'
             }}
-            aria-live="polite"
+            aria-live='polite'
           >
             {terminalLines.map((line, i) => {
               const isLineCurrent = lineIndex === i
               const isLineDone = lineIndex > i
               const isLineVisible = isLineCurrent || isLineDone
-              const charsShown = isLineDone
-                ? line.text.length
-                : isLineCurrent
-                  ? currentChars
-                  : 0
+              const charsShown = isLineDone ? line.text.length : isLineCurrent ? currentChars : 0
               const visibleText = line.text.slice(0, charsShown)
               const isFinalLineDone = isLineDone && i === terminalLines.length - 1
               const accentColor = line.accent ? theme.colors.accent : theme.colors.textSecondary
@@ -353,21 +339,19 @@ export default function Slide27DemoDevBugFix() {
                   style={{
                     display: 'flex',
                     gap: 8,
-                    minHeight: '1.7em',
+                    minHeight: '1.7em'
                   }}
                 >
                   {isLineVisible ? (
                     <>
-                      <span style={{ color: theme.colors.textMuted, flexShrink: 0 }}>
-                        {line.prefix}
-                      </span>
+                      <span style={{ color: theme.colors.textMuted, flexShrink: 0 }}>{line.prefix}</span>
                       <span
                         style={{
                           color: accentColor,
                           textShadow: isFinalLineDone
                             ? `0 0 10px ${theme.colors.accent}88, 0 0 20px ${theme.colors.accent}44`
                             : 'none',
-                          transition: 'text-shadow 450ms ease-out',
+                          transition: 'text-shadow 450ms ease-out'
                         }}
                       >
                         {visibleText}
@@ -380,7 +364,7 @@ export default function Slide27DemoDevBugFix() {
                               display: 'inline-block',
                               marginLeft: 1,
                               color: theme.colors.accent,
-                              fontWeight: 700,
+                              fontWeight: 700
                             }}
                           >
                             ▎
@@ -400,8 +384,8 @@ export default function Slide27DemoDevBugFix() {
           {/* Clock — pulses when all lines done to emphasize the "15 min" payoff */}
           <motion.div
             variants={fadeUp}
-            initial="hidden"
-            animate="visible"
+            initial='hidden'
+            animate='visible'
             custom={8}
             style={{
               width: 140,
@@ -413,11 +397,8 @@ export default function Slide27DemoDevBugFix() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: 8,
-              boxShadow: isDone
-                ? `0 0 32px ${theme.colors.accent}66, 0 0 64px ${theme.colors.accent}33`
-                : 'none',
-              transition:
-                'background 500ms ease-out, border-color 500ms ease-out, box-shadow 500ms ease-out',
+              boxShadow: isDone ? `0 0 32px ${theme.colors.accent}66, 0 0 64px ${theme.colors.accent}33` : 'none',
+              transition: 'background 500ms ease-out, border-color 500ms ease-out, box-shadow 500ms ease-out'
             }}
           >
             <motion.div
@@ -428,15 +409,15 @@ export default function Slide27DemoDevBugFix() {
                       filter: [
                         `drop-shadow(0 0 0 ${theme.colors.accent}00)`,
                         `drop-shadow(0 0 10px ${theme.colors.accent})`,
-                        `drop-shadow(0 0 0 ${theme.colors.accent}00)`,
-                      ],
+                        `drop-shadow(0 0 0 ${theme.colors.accent}00)`
+                      ]
                     }
                   : {}
               }
               transition={{
                 duration: 1.6,
                 repeat: isDone ? Infinity : 0,
-                ease: 'easeInOut',
+                ease: 'easeInOut'
               }}
             >
               <Clock size={28} color={theme.colors.accent} />
@@ -449,7 +430,7 @@ export default function Slide27DemoDevBugFix() {
                 color: theme.colors.accent,
                 lineHeight: 1,
                 textShadow: isDone ? `0 0 14px ${theme.colors.accent}88` : 'none',
-                transition: 'text-shadow 500ms ease-out',
+                transition: 'text-shadow 500ms ease-out'
               }}
             >
               15
@@ -460,7 +441,7 @@ export default function Slide27DemoDevBugFix() {
                 fontSize: 11,
                 color: theme.colors.textMuted,
                 letterSpacing: '0.12em',
-                textTransform: 'uppercase',
+                textTransform: 'uppercase'
               }}
             >
               min

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowUp, ArrowRight, X } from 'lucide-react'
 import SlideLayout from '../components/SlideLayout'
-import { QuoteBlock } from '../components/quote-block'
 import { BiText } from '../components/bi-text'
 import { SlideSectionLabel } from '../components/slide-section-label'
 import { theme, gradients } from '../lib/theme'
@@ -149,15 +148,27 @@ export default function Slide07SummaryWrongGoal() {
               }}
               krStyle={{ fontSize: '0.78em', marginTop: '0.4em' }}
             />
+
+            {/*
+              Inline tagline replaces the old standalone QuoteBlock footer,
+              which overflowed the 720px slide box. Keeps the core message
+              inside the right panel where it belongs visually.
+            */}
+            <BiText
+              vi="Nhiều code ≠ Nhiều value"
+              kr="많은 코드 ≠ 많은 가치"
+              viStyle={{
+                fontFamily: theme.fonts.display,
+                fontSize: 14,
+                fontStyle: 'italic',
+                color: theme.colors.textMuted,
+                marginTop: 4,
+                letterSpacing: '0.02em',
+              }}
+              krStyle={{ fontSize: '0.85em', marginTop: '0.25em' }}
+            />
           </motion.div>
         </div>
-
-        <QuoteBlock
-          quote="Nhiều code != Nhiều value."
-          quoteKr="많은 코드 ≠ 많은 가치."
-          size="small"
-          delay={4}
-        />
       </div>
     </SlideLayout>
   )

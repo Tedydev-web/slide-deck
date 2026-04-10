@@ -1,78 +1,169 @@
 import { motion } from 'framer-motion'
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  Cell, LabelList, ResponsiveContainer,
+} from 'recharts'
 import SlideLayout, { Attribution } from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { SlideSectionLabel } from '../components/slide-section-label'
-import { DataBar } from '../components/data-bar'
-import { QuoteBlock } from '../components/quote-block'
-import { theme, gradients } from '../lib/theme'
-import { fadeUp } from '../lib/animations'
+import { theme } from '../lib/theme'
+import { fadeUp, staggerContainer } from '../lib/animations'
 
-const barData = [
-  { label: 'Thời gian review', labelKr: '리뷰 시간', value: 90, display: '+90%' },
-  { label: 'Kích thước PR', labelKr: 'PR 크기', value: 154, display: '+154%' },
-  { label: 'Bug/người', labelKr: '개발자당 버그', value: 9, display: '+9%' },
+/* Exact data from ai-code-vs-profit original — note 91% not 90% */
+const chartData = [
+  { metric: 'Thời gian review', value: 91, label: '+91%', color: '#f44336' },
+  { metric: 'Kích thước PR', value: 154, label: '+154%', color: '#FF5722' },
+  { metric: 'Bug / người', value: 9, label: '+9%', color: '#FFC107' },
 ]
+
+const CHART = {
+  gridColor: 'rgba(255, 255, 255, 0.06)',
+  tickColor: 'rgba(255, 255, 255, 0.5)',
+}
 
 export default function Slide06ReviewBottleneck() {
   return (
-    <SlideLayout background={gradients.deep}>
-      <div
+    <SlideLayout>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
         style={{
-          width: '100%',
-          height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          padding: '56px 100px',
+          height: '100%',
+          padding: '60px 80px',
         }}
       >
         <SlideSectionLabel label="SỰ THẬT #3" labelKr="사실 #3" />
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          style={{ marginTop: 20, marginBottom: 44 }}
-        >
+        <motion.div variants={fadeUp} custom={1} style={{ marginTop: 12 }}>
           <BiText
             vi="Điểm nghẽn dịch chuyển sang review"
             kr="병목이 리뷰로 이동했습니다"
             viStyle={{
               fontFamily: theme.fonts.display,
-              fontSize: 46,
               fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-              color: theme.colors.text,
+              fontSize: 40,
+              lineHeight: 1.2,
+              textAlign: 'left' as const,
+              marginBottom: 8,
             }}
-            krStyle={{ fontSize: '0.6em', marginTop: '0.4em' }}
+            krStyle={{ fontSize: '0.55em', marginTop: '0.3em' }}
           />
         </motion.div>
 
+        <motion.p
+          variants={fadeUp}
+          custom={2}
+          style={{
+            fontSize: 14,
+            color: theme.colors.textMuted,
+            textAlign: 'left',
+            marginBottom: 28,
+          }}
+        >
+          AI đẩy công việc từ viết code → review code — Faros AI, 10k developer
+        </motion.p>
+
+        {/* Recharts horizontal bar chart — exact match to original */}
         <motion.div
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={2}
-          style={{ marginBottom: 40 }}
+          custom={3}
+          style={{ flex: 1, display: 'flex', alignItems: 'center' }}
         >
-          <DataBar
-            data={barData}
-            maxValue={160}
-            barHeight={44}
-            labelWidth={240}
-          />
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={chartData} layout="vertical" barSize={50}>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke={CHART.gridColor}
+                horizontal={false}
+              />
+              <XAxis
+                type="number"
+                domain={[0, 180]}
+                tick={{ fill: CHART.tickColor, fontSize: 14 }}
+                axisLine={{ stroke: CHART.gridColor }}
+                tickFormatter={(v: number) => `+${v}%`}
+              />
+              <YAxis
+                type="category"
+                dataKey="metric"
+                width={160}
+                tick={{
+                  fill: CHART.tickColor,
+                  fontSize: 15,
+                  fontFamily: theme.fonts.body,
+                }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Bar dataKey="value" radius={[0, 4, 4, 0]} animationDuration={1200}>
+                {chartData.map((entry, i) => (
+                  <Cell key={i} fill={entry.color} />
+                ))}
+                <LabelList
+                  dataKey="label"
+                  position="right"
+                  style={{
+                    fill: '#fff',
+                    fontSize: 20,
+                    fontWeight: 700,
+                    fontFamily: theme.fonts.body,
+                  }}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
         </motion.div>
 
-        <QuoteBlock
-          quote="AI không xóa bottleneck. AI dịch chuyển nó — từ viết code sang review code."
-          quoteKr="AI는 병목을 없애지 않는다. 옮길 뿐 — 작성에서 리뷰로."
-          size="medium"
-          delay={3}
-        />
-      </div>
+        <motion.div variants={fadeUp} custom={4}>
+          <SourceLink
+            href="https://www.faros.ai/blog/ai-software-engineering"
+            label="Faros AI (2025)"
+          />
+        </motion.div>
+      </motion.div>
 
       <Attribution>SOURCE: FAROS AI (2025)</Attribution>
     </SlideLayout>
+  )
+}
+
+function SourceLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-interactive="true"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 6,
+        fontSize: 14,
+        color: theme.colors.textMuted,
+        textDecoration: 'underline',
+        textUnderlineOffset: 3,
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={12}
+        height={12}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M15 3h6v6" />
+        <path d="M10 14 21 3" />
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      </svg>
+      {label}
+    </a>
   )
 }

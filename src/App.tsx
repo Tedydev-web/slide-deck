@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useNavigate, useParams } from 'react-router-do
 import { slideSlugs, slides } from './slides'
 import { useSlideScale } from './lib/useSlideScale'
 import { theme } from './lib/theme'
+import { SlideIndexContext } from './components/SlideLayout'
 
 export default function App() {
   return (
@@ -225,7 +226,13 @@ function SlideDeck() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <SlideComponent />
+            {/*
+              Provide slide index + total so every SlideLayout can render the
+              corner page-number watermark automatically — no per-slide wiring.
+            */}
+            <SlideIndexContext.Provider value={{ index: current, total }}>
+              <SlideComponent />
+            </SlideIndexContext.Provider>
           </motion.div>
         </AnimatePresence>
       </div>
