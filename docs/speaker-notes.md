@@ -86,7 +86,7 @@ Khi cite Faros / METR / Stack Overflow / Jellyfish / Business Insider:
 - Acknowledge skepticism **proactively** — *"Tôi biết các bạn nghi data nước ngoài. Tôi cũng vậy."*
 - Disclose bias **early** — đừng để dồn xuống S13 mới nói, mỗi data point 1 câu caveat
 - Frame as **signal** — *"Đây là 1 trong nhiều signals. Tôi sẽ show signal ngược ở slide sau."*
-- **Cite Goonie + VN sources song song** khi có — tạo cân bằng perspective
+- **Cite VN sources song song** khi có — tạo cân bằng perspective
 - **Invite pushback** — *"Nếu các bạn có data khác, tôi muốn nghe — Q&A cuối workshop."*
 
 ### Which slides need this frame
@@ -316,16 +316,16 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 ---
 
 ### S11 — vibe-coding-dead · 75s ⚡ ⚠️ DEV REFRAME MOMENT
-**Energy:** ⚡ medium → sharper · **Stance:** center, timeline pointing, then stand still for Goonie quote
+**Energy:** ⚡ medium → sharper · **Stance:** center, timeline pointing, then stand still for the principle
 **Audience is thinking (dev):** *"Vibe coding? Tôi ghét nó — prove me wrong."*
 **Audience is thinking (non-dev):** *"Vibe coding là gì?"*
 
 **Hook:** *"Trước hết, định nghĩa cho chuẩn. 'Vibe coding' đã bị hiểu sai."* [pause 2s]
 
 **Body:**
-- **Karpathy origin (historical fact, Feb 2025):** *"Andrej Karpathy đặt tên. Ý gốc: 'accept all, ít đọc diff, sửa lỗi bằng cách quăng lỗi ngược cho AI'. Cho **prototype vui, low-stakes**. Không phải production."* [Karpathy là người đặt tên — fact, không phải authority endorsement]
-- **Reality gap:** *"Nhưng người ta hiểu sai. Tưởng 'build được demo = build được product'. Đó là ảo tưởng."*
-- **Goonie reframe (verbatim):** *"Đừng thả rông AI. Kiểm soát tụi nó. AI không phải đũa thần."* — trích Goonie, bài "2026 — Here we go!"
+- **Lịch sử thuật ngữ (đầu 2025):** *"Thuật ngữ 'vibe coding' ra đời đầu 2025. Ý gốc rất cụ thể: 'accept all, ít đọc diff, sửa lỗi bằng cách quăng lỗi ngược cho AI'. Cho **prototype vui, low-stakes**. Không phải cho production."*
+- **Reality gap:** *"Nhưng nhiều người hiểu sai. Tưởng 'build được demo = build được product'. Đó là ảo tưởng."*
+- **Speaker declaration (verbatim, LỜI MÌNH):** *"Đừng thả rông AI. Kiểm soát tụi nó. AI không phải đũa thần."*
 - **Critical distinction:** *"Ghét không phải ghét AI. Ghét là ghét **vô trách nhiệm với code của mình**."*
 - **MEMORY HOOK (verbatim):** *"Vấn đề không phải AI viết code. Vấn đề là con người ký tên vào thứ mình không hiểu."*
 
@@ -333,7 +333,7 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 - Senior dev nod → *"Đúng, tôi biết các bạn phân biệt được. Đây là thứ workshop này sẽ về."*
 - Defensive → *"Tôi không nói các bạn phải dùng AI. Chỉ nói, nếu dùng — kiểm soát cho đúng."*
 
-**Quote emphasis:** đọc Goonie quote **chậm, dứt khoát**, sau VI 1 beat rồi KR. Đây là câu Goonie viết cho dev VN — dùng giọng "anh em với nhau" không phải "giảng viên".
+**Delivery emphasis:** đọc principle statement **chậm, dứt khoát**, sau VI 1 beat rồi KR. Đây là **LỜI MÌNH**, không phải câu trích ai. Giọng "anh em với nhau" không phải "giảng viên đọc slide".
 
 **KR cue:** *"오해된 정의"* [ohaedoen jeongui] — at slide title
 
@@ -1084,7 +1084,7 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 **Response:** *"Nhiều code ≠ nhiều value. Production bug cost gấp 100× dev time tiết kiệm."*
 
 ### Reframe #4 — "Vibe coding phá nghề" → "Vibe coding là sân tập trực giác"
-> *"Simon Willison: vibe coding hữu ích để xây trực giác về LLM — làm được gì, không làm được gì. Nên là sandbox để học, không phải triết lý ship mọi thứ."*
+> *"Vibe coding hữu ích để xây trực giác về LLM — làm được gì, không làm được gì. Nên là sandbox để học, không phải triết lý ship mọi thứ."*
 
 **When to use:** Khi ai đó bash vibe coding universal
 **Response:** *"Vibe coding ở low-stakes project = học. Vibe coding ở production auth = thảm hoạ. Khác sân chơi."*
@@ -1108,19 +1108,19 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 **Response:** *"Senior skepticism = immune system của codebase. AI cần senior review hơn senior cần AI."*
 
 ### Reframe #8 — "AI là phép màu" → "AI là đòn bẩy có điều kiện"
-> *"Goonie: thứ làm người ta ảo tưởng không phải AI mạnh quá, mà là tưởng **build được demo đồng nghĩa build được product**. Production-readiness, security, deploy, go-to-market vẫn là pain rất thật."*
+> *"Thứ làm người ta ảo tưởng không phải AI mạnh quá, mà là tưởng **build được demo đồng nghĩa build được product**. Production-readiness, security, deploy, go-to-market vẫn là pain rất thật."*
 
 **When to use:** Khi ai đó hype AI vô điều kiện
 **Response:** *"Demo 5 phút không bằng production stable 5 tháng. Khoảng cách đó là nghề của chúng ta."*
 
 ### Reframe #9 — "Prompt giỏi là đủ" → "Quy trình mới là thứ cứu mình"
-> *"Anthropic 2026 agentic best practices: verification, planning, context, subagents, checkpoints. Đừng thần bí hóa prompt. Hãy hệ thống hóa cách làm việc."*
+> *"Best practice agentic 2026: verification, planning, context, subagents, checkpoints. Đừng thần bí hóa prompt. Hãy hệ thống hóa cách làm việc."*
 
 **When to use:** Khi ai đó hỏi "làm sao prompt cho AI giỏi hơn"
 **Response:** *"Đặt câu hỏi sai. Câu đúng là: 'harness nào quanh AI để catch lỗi của AI?'"*
 
 ### Reframe #10 — "AI hay con người" → "AI + con người + quy trình"
-> *"Goonie: 'Hãy để AI trở thành bạn đồng hành — không phải sự thay thế.' Đây là cách phá cả 2 cực đoan: sợ AI và thờ AI."*
+> *"Nguyên tắc vàng: 'Hãy để AI trở thành bạn đồng hành — không phải sự thay thế.' Đây là cách phá cả 2 cực đoan: sợ AI và thờ AI."*
 
 **When to use:** Closing debate, hoặc khi audience chia rẽ AI vs anti-AI
 **Response:** *"Cả 2 cực đều sai. Nghiêng về 1 cực = mất cân bằng. Dev giỏi giữ cân bằng."*
@@ -1187,17 +1187,13 @@ Sắp vào **6 slide theory liên tiếp** (S15, S16, S17, S18, S19, S21). Đây
 
 ---
 
-## 📖 Source References
+## 📖 Data Sources (for data slides only)
 
-Các source dùng trong Appendix A/B/C cho presenter đối chiếu nếu audience hỏi:
+Chỉ dùng khi audience hỏi data đến từ đâu. **Không cite authority cho reframe/quote** — các câu đập chấp niệm là lời của speaker, không phải trích ai.
 
-- **Andrej Karpathy** (Feb 2025) — người đặt tên "vibe coding" — Twitter/X
-- **Simon Willison** (2025) — nuance "not all AI coding = vibe" — simonwillison.net
-- **Stack Overflow Developer Survey 2025** — 46% mistrust accuracy, 66% frustrated — survey.stackoverflow.co
-- **METR RCT 2025** — 19% slower on senior OSS devs — metr.org
-- **Anthropic Agentic Coding Report (2026)** — verification/planning/context/checkpoints
-- **Goonie "2026 - Here we go!"** — Vietnamese dev perspective, control vs thả rông
-- **Faros AI 2025** — +110% PR, 10,000 devs, 1,255 teams
-- **Jellyfish 2025** — 700 companies, 200k engineers, 20M PRs
+- **Stack Overflow Developer Survey 2025** — 46% mistrust accuracy, 66% frustrated (S03 footer)
+- **METR RCT 2025** — 19% slower on senior OSS devs (S05)
+- **Faros AI 2025** — +110% PR, 10,000 devs, 1,255 teams (S04)
+- **Jellyfish 2025** — 700 companies, 200k engineers, 20M PRs (S15)
 
-**Note về Goonie:** Đây là tác giả Vietnamese dev community. Chỉ reference trong speaker notes (personal voice), không cite trên slide để tránh assumption KR audience không biết. Nếu audience 100% Việt Nam + dev-familiar → có thể mention tên trên sân khấu.
+**Nguyên tắc vàng:** Tất cả câu reframe + punchline trong Appendix A/B/C là **LỜI MÌNH** khi đứng trên sân khấu. Không nói "theo X, Y, Z". Audience cần tin ở speaker, không phải tin ở tác giả được trích.

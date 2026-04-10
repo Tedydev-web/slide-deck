@@ -8,9 +8,9 @@ import { fadeUp, staggerContainer } from '../lib/animations'
 
 const timelineItems = [
   {
-    year: 'Feb 2025',
-    vi: 'Karpathy đặt tên "vibe coding" — cho prototype low-stakes, "accept all"',
-    kr: 'Karpathy "바이브 코딩" 명명 — 저위험 프로토타입용',
+    year: 'Đầu 2025',
+    vi: 'Thuật ngữ "vibe coding" ra đời — cho prototype low-stakes, "accept all"',
+    kr: '"바이브 코딩" 용어 등장 — 저위험 프로토타입용',
     highlight: false,
   },
   {
@@ -162,7 +162,6 @@ export default function Slide11VibeCodingDead() {
           <QuoteBlock
             quote="Đừng vibe coding… Hãy kiểm soát tụi nó."
             quoteKr="바이브 코딩 하지 마세요. 제어하세요."
-            source="Goonie — '2026: Here we go!'"
             size="small"
           />
         </motion.div>

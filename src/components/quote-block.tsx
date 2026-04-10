@@ -7,7 +7,7 @@ import { fadeUp } from '../lib/animations'
 interface QuoteBlockProps {
   quote: string
   quoteKr?: string
-  source: string
+  source?: string
   size?: 'large' | 'medium' | 'small'
   style?: CSSProperties
   delay?: number
@@ -85,17 +85,19 @@ export function QuoteBlock({
           &ldquo;{quoteKr}&rdquo;
         </div>
       )}
-      <div
-        style={{
-          fontFamily: theme.fonts.mono,
-          fontSize: 12,
-          color: theme.colors.textMuted,
-          textTransform: 'uppercase',
-          letterSpacing: '0.12em',
-        }}
-      >
-        — {source}
-      </div>
+      {source && (
+        <div
+          style={{
+            fontFamily: theme.fonts.mono,
+            fontSize: 12,
+            color: theme.colors.textMuted,
+            textTransform: 'uppercase',
+            letterSpacing: '0.12em',
+          }}
+        >
+          — {source}
+        </div>
+      )}
     </motion.div>
   )
 }
