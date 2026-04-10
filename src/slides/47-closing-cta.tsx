@@ -77,13 +77,14 @@ export default function Slide47() {
           <div
             style={{
               fontFamily: theme.fonts.body,
-              fontSize: 20,
+              fontSize: 22,
               color: theme.colors.textSecondary,
-              lineHeight: 1.6,
+              lineHeight: 1.55,
               marginBottom: 10,
+              fontStyle: 'italic',
             }}
           >
-            Lợi thế không nằm ở tốc độ viết code — mà ở tốc độ biến code thành giá trị.
+            Hãy để AI trở thành bạn đồng hành — không phải sự thay thế.
           </div>
           <div
             lang="ko"
@@ -91,10 +92,10 @@ export default function Slide47() {
               fontFamily: theme.fonts.korean,
               fontSize: 16,
               color: theme.colors.textMuted,
-              lineHeight: 1.6,
+              lineHeight: 1.55,
             }}
           >
-            이점은 코드 작성 속도가 아니라 — 코드를 가치로 변환하는 속도에 있습니다.
+            AI를 동반자로 — 대체가 아닌.
           </div>
         </motion.div>
 
@@ -134,6 +135,36 @@ export default function Slide47() {
             }}
           >
             가치 &gt; 수량
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={6}
+          style={{
+            marginTop: 28,
+            fontFamily: theme.fonts.mono,
+            fontSize: 16,
+            letterSpacing: '0.08em',
+            textAlign: 'center',
+          }}
+        >
+          <span style={{ color: theme.colors.accent, fontWeight: 700 }}>Community</span>
+          <span style={{ color: theme.colors.textMuted, margin: '0 10px' }}>&gt;</span>
+          <span style={{ color: theme.colors.textSecondary }}>Competition</span>
+          <div
+            lang="ko"
+            style={{
+              fontFamily: theme.fonts.korean,
+              fontSize: 13,
+              color: theme.colors.textMuted,
+              marginTop: 6,
+              letterSpacing: '0.04em',
+            }}
+          >
+            커뮤니티 &gt; 경쟁
           </div>
         </motion.div>
       </div>

@@ -246,9 +246,8 @@ export default function Slide14JuniorAiLearning() {
           style={{ marginTop: 12 }}
         >
           <QuoteBlock
-            quote="Các công ty săn đón những dev biết cách chỉ huy AI."
-            quoteKr="AI를 지휘할 줄 아는 개발자를 원합니다."
-            source="CNN Business 2026"
+            quote="Có thách thức thì sẽ có cơ hội."
+            quoteKr="도전이 있으면 기회도 있다."
             size="small"
           />
         </motion.div>

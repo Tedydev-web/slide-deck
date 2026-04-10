@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
 import SlideLayout from '../components/SlideLayout'
+import { QuoteBlock } from '../components/quote-block'
 import { BiText } from '../components/bi-text'
 import { X, Check } from 'lucide-react'
 import { theme, gradients } from '../lib/theme'
@@ -302,6 +303,20 @@ export default function Slide30BadVsGood() {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={2}
+          style={{ marginTop: 20 }}
+        >
+          <QuoteBlock
+            quote="Đừng có mặc định chê nữa, tìm cái hay mà học."
+            quoteKr="기본적으로 비판하지 말고, 배울 점을 찾자."
+            size="small"
+          />
+        </motion.div>
       </div>
     </SlideLayout>
   )
