@@ -146,9 +146,8 @@ export default function Slide32() {
         </div>
 
         <QuoteBlock
-          quote="The hollowed-out career ladder. Seniors at top. AI doing grunt work. No juniors learning."
-          quoteKr="공허해진 커리어 사다리. 시니어만 위에. AI가 잡일. 주니어는 배우지 못함."
-          source="ThinkPol 2026"
+          quote="Khi AI làm hết việc vặt, junior không còn chỗ tập nghề. Thang nghề rỗng ruột."
+          quoteKr="AI가 잡일 다 하면, 주니어는 배울 자리가 없다. 커리어 사다리가 비어간다."
           size="small"
           delay={4}
         />

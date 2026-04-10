@@ -65,9 +65,8 @@ export default function Slide06ReviewBottleneck() {
         </motion.div>
 
         <QuoteBlock
-          quote="The bottleneck shifted from writing code to reviewing it."
-          quoteKr="병목이 코드 작성에서 코드 리뷰로 이동했습니다."
-          source="LogRocket, 2025"
+          quote="AI không xóa bottleneck. AI dịch chuyển nó — từ viết code sang review code."
+          quoteKr="AI는 병목을 없애지 않는다. 옮길 뿐 — 작성에서 리뷰로."
           size="medium"
           delay={3}
         />

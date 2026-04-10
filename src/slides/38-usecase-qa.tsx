@@ -156,9 +156,8 @@ AI hỗ trợ
         </div>
 
         <QuoteBlock
-          quote="Same time. Same AI. Different results. The diff is the human."
+          quote="Cùng thời gian. Cùng AI. Khác kết quả. Khác ở con người."
           quoteKr="같은 시간. 같은 AI. 다른 결과. 차이는 사람."
-          source="brainstorm 2026"
           size="small"
           delay={4}
         />
