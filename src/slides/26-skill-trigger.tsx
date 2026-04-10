@@ -6,21 +6,19 @@ import SlideLayout from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { theme, gradients } from '../lib/theme'
 
-// ---- Content constants (CK Marketing example: /ckm:write:blog) ----------
-const USER_PHRASE_VI = 'Viết blog post launch tính năng AI mới'
-const USER_PHRASE_KR = '새 AI 기능 출시 블로그 포스트 작성'
+// ---- Content constants (Claude Kit engineer example: /ck:brainstorm) -----
+const USER_PHRASE_VI = 'Brainstorm approach cho real-time chat'
+const USER_PHRASE_KR = '실시간 채팅 접근법 브레인스토밍'
 
 // Description split into parts so we can apply per-segment highlight glow.
 // `highlight: true` segments glow with text-shadow when step >= 1, signaling
-// the keyword match that triggered the skill.
+// the keyword match that triggered the skill activation.
 const DESC_PARTS: { text: string; highlight: boolean }[] = [
-  { text: '"Tạo ', highlight: false },
-  { text: 'blog', highlight: true },
-  { text: ' SEO khi user cần viết bài ', highlight: false },
-  { text: 'launch', highlight: true },
-  { text: ' sản phẩm hoặc ', highlight: false },
-  { text: 'tính năng', highlight: true },
-  { text: ' mới"', highlight: false },
+  { text: '"', highlight: false },
+  { text: 'Brainstorm', highlight: true },
+  { text: ' giải pháp và so sánh ', highlight: false },
+  { text: 'approach', highlight: true },
+  { text: ' khi cần thảo luận kỹ thuật"', highlight: false },
 ]
 
 // ---- Timing (milliseconds) ---------------------------------------------
@@ -220,7 +218,7 @@ export default function Slide26SkillTrigger() {
                 letterSpacing: '0.04em',
               }}
             >
-              description trong skills/write-blog/SKILL.md
+              description trong skills/brainstorm/SKILL.md
             </div>
             <div
               style={{
@@ -391,7 +389,7 @@ export default function Slide26SkillTrigger() {
                 </svg>
                 <span>
                   Skill{' '}
-                  <span style={{ fontFamily: theme.fonts.mono }}>'write-blog'</span> được kích hoạt!
+                  <span style={{ fontFamily: theme.fonts.mono }}>'brainstorm'</span> được kích hoạt!
                 </span>
               </div>
               <div
@@ -405,7 +403,7 @@ export default function Slide26SkillTrigger() {
                   paddingLeft: 30,
                 }}
               >
-                ✓ 스킬 'write-blog' 활성화!
+                ✓ 스킬 'brainstorm' 활성화!
               </div>
             </div>
           </motion.div>
@@ -422,7 +420,7 @@ export default function Slide26SkillTrigger() {
             }}
           >
             // Hoặc gọi trực tiếp:{' '}
-            <span style={{ color: theme.colors.accent }}>/ckm:write:blog</span>
+            <span style={{ color: theme.colors.accent }}>/ck:brainstorm</span>
             <span
               lang="ko"
               style={{
@@ -432,7 +430,7 @@ export default function Slide26SkillTrigger() {
                 marginTop: '0.25em',
               }}
             >
-              또는 직접 호출: /ckm:write:blog
+              또는 직접 호출: /ck:brainstorm
             </span>
           </motion.div>
 
