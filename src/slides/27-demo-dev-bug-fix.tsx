@@ -13,7 +13,7 @@ const steps = [
 ]
 
 const terminalLines = [
-  { prefix: '$', text: 'claude fix "NullPointerException in auth.ts:45"', accent: false },
+  { prefix: '$', text: '/ck:fix "NullPointerException in auth.ts:45"', accent: false },
   { prefix: '→', text: 'Reading auth.ts...', accent: false },
   { prefix: '→', text: 'Tracing call chain...', accent: false },
   { prefix: '→', text: 'Root cause: missing null check', accent: false },

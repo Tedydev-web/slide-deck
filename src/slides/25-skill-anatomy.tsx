@@ -6,17 +6,17 @@ import { theme, gradients } from '../lib/theme'
 
 const codeLines = [
   { text: '---', type: 'muted' },
-  { text: 'name: my-awesome-skill', type: 'accent' },
-  { text: 'description: "Tạo component React', type: 'accent' },
-  { text: '  khi người dùng yêu cầu tạo UI"', type: 'accent' },
+  { text: 'name: cook', type: 'accent' },
+  { text: 'description: "ALWAYS activate before', type: 'accent' },
+  { text: '  implementing EVERY feature, plan, or fix"', type: 'accent' },
   { text: '---', type: 'muted' },
   { text: '', type: 'muted' },
-  { text: '# Hướng dẫn', type: 'text' },
+  { text: '# Cook — Implementation Workflow', type: 'text' },
   { text: '', type: 'muted' },
-  { text: 'Khi tạo React component, hãy:', type: 'secondary' },
-  { text: '1. Dùng TypeScript', type: 'secondary' },
-  { text: '2. Dùng Tailwind CSS', type: 'secondary' },
-  { text: '3. Export default component', type: 'secondary' },
+  { text: 'Khi user yêu cầu implement/fix:', type: 'secondary' },
+  { text: '1. Research: đọc code + context', type: 'secondary' },
+  { text: '2. Plan: xác định approach + steps', type: 'secondary' },
+  { text: '3. Implement + verify: tests pass', type: 'secondary' },
 ]
 
 function lineColor(type: string): string {
@@ -103,7 +103,7 @@ export default function Slide25SkillAnatomy() {
                 letterSpacing: '0.04em',
               }}
             >
-              skills/my-skill/SKILL.md
+              skills/cook/SKILL.md
             </div>
             {codeLines.map((line, i) => (
               <div

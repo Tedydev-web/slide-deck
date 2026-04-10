@@ -117,6 +117,65 @@ export default function Slide26SkillTrigger() {
               </span>
             </motion.div>
 
+            {/* Second trigger example — compact inline card */}
+            <motion.div
+              variants={slideUp}
+              style={{
+                marginTop: 4,
+                padding: '14px 20px',
+                border: `1px solid ${theme.colors.border}`,
+                borderRadius: 8,
+                background: theme.colors.surface,
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: theme.fonts.mono,
+                  fontSize: 'clamp(10px, 1vw, 12px)',
+                  color: theme.colors.textMuted,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  marginBottom: 8,
+                }}
+              >
+                <BiText
+                  vi="Ví dụ khác"
+                  kr="다른 예시"
+                  viStyle={{ color: theme.colors.textMuted }}
+                  krStyle={{ fontSize: '0.85em', marginLeft: '0.6em', color: theme.colors.textMuted }}
+                />
+              </div>
+              <div
+                style={{
+                  fontFamily: theme.fonts.mono,
+                  fontSize: 'clamp(11px, 1.2vw, 14px)',
+                  color: theme.colors.accent,
+                  marginBottom: 8,
+                  lineHeight: 1.5,
+                }}
+              >
+                "ALWAYS activate before implementing EVERY feature, plan, or fix"
+              </div>
+              <div
+                style={{
+                  fontFamily: theme.fonts.body,
+                  fontSize: 'clamp(12px, 1.3vw, 15px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  flexWrap: 'wrap',
+                }}
+              >
+                <span style={{ color: theme.colors.text }}>
+                  "Thêm API endpoint cho payment"
+                </span>
+                <span style={{ color: theme.colors.textMuted }}>→</span>
+                <span style={{ color: theme.colors.accent, fontWeight: 600, fontFamily: theme.fonts.mono }}>
+                  ✓ /ck:cook
+                </span>
+              </div>
+            </motion.div>
+
             <motion.div
               variants={terminalLine}
               style={{
@@ -124,11 +183,11 @@ export default function Slide26SkillTrigger() {
                 color: theme.colors.textMuted,
                 fontFamily: theme.fonts.mono,
                 opacity: 0.7,
-                marginTop: 8,
+                marginTop: 4,
               }}
             >
               {/* KR inline explanation */}
-              // Hoặc gọi trực tiếp: /slide-deck
+              // Hoặc gọi trực tiếp: /slide-deck, /ck:cook, /ck:fix, /ck:plan...
               <span
                 lang="ko"
                 style={{
@@ -140,7 +199,7 @@ export default function Slide26SkillTrigger() {
                   opacity: 0.8,
                 }}
               >
-                또는 직접 호출: /slide-deck
+                또는 직접 호출: /slide-deck, /ck:cook, /ck:fix, /ck:plan...
               </span>
             </motion.div>
           </motion.div>

@@ -7,10 +7,10 @@ import { fadeUp } from '../lib/animations'
 import { ArrowRight } from 'lucide-react'
 
 const STEPS = [
-  { cmd: '/video:script:create', desc: '30-sec launch\nVN professionals' },
-  { cmd: '/video:storyboard:create', desc: 'frame-by-frame' },
+  { cmd: '/ckm:video:script:create', desc: '30-sec launch\nVN professionals' },
+  { cmd: '/ckm:video:storyboard:create', desc: 'frame-by-frame' },
   { cmd: 'AI → Veo 3.1\nprompts', desc: 'generate prompts' },
-  { cmd: '/video:create', desc: 'assemble draft' },
+  { cmd: '/ckm:video:create', desc: 'assemble draft' },
 ]
 
 export default function Slide40() {
