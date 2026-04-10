@@ -9,7 +9,7 @@ import { theme, gradients } from '../lib/theme'
 //  0 = name
 //  1 = description
 //  2 = instructions
-// null = structural lines (yaml delimiters, empty lines) — always visible
+// null = structural lines (yaml delimiters, blanks) — always visible
 type Section = 0 | 1 | 2
 
 interface CodeLine {
@@ -35,6 +35,7 @@ const codeLines: CodeLine[] = [
 
 interface AnatomyCard {
   section: Section
+  index: string
   title: { vi: string; kr: string }
   sub: { vi: string; kr: string }
 }
@@ -42,16 +43,19 @@ interface AnatomyCard {
 const cards: AnatomyCard[] = [
   {
     section: 0,
+    index: '01',
     title: { vi: 'Tên skill', kr: '스킬 이름' },
     sub: { vi: 'Định danh duy nhất', kr: '고유 식별자' },
   },
   {
     section: 1,
-    title: { vi: 'Mô tả / Từ khóa', kr: '설명 · 키워드' },
+    index: '02',
+    title: { vi: 'Mô tả · Từ khóa', kr: '설명 · 키워드' },
     sub: { vi: 'Kích hoạt tự động', kr: '자동 트리거' },
   },
   {
     section: 2,
+    index: '03',
     title: { vi: 'Hướng dẫn', kr: '지침' },
     sub: { vi: 'Markdown tự do', kr: '자유 마크다운' },
   },
@@ -71,102 +75,116 @@ function lineColor(type: CodeLine['type']): string {
 }
 
 export default function Slide25SkillAnatomy() {
-  // Click-to-highlight state. null = no card selected, all code lines at full opacity.
-  // When a card is clicked, its section becomes active: matching lines stay bright,
-  // other section lines fade. Clicking the same card again toggles back to null.
+  // Click-to-highlight state machine:
+  //  null       → no card selected, all code lines at full opacity
+  //  0 | 1 | 2  → corresponding section lit, other sections dim
+  // Clicking the same card again toggles back to null.
   const [activeSection, setActiveSection] = useState<Section | null>(null)
 
   const handleCardClick = (section: Section) => {
     setActiveSection((current) => (current === section ? null : section))
   }
 
-  // Per-line opacity driven by activeSection:
-  //  - nothing active: full brightness for all lines
-  //  - structural (null section): keep at 0.6 so frame stays readable
-  //  - in-section line: full 1
-  //  - out-of-section line: dim 0.25
+  // Per-line opacity driven by activeSection.
+  //  - nothing active           → all lines at 1
+  //  - structural (null)        → held at 0.55 so frame stays legible
+  //  - in-section line          → 1
+  //  - out-of-section line      → 0.22 (dim but not invisible)
   const getLineOpacity = (line: CodeLine): number => {
     if (activeSection === null) return 1
-    if (line.section === null) return 0.6
-    return line.section === activeSection ? 1 : 0.25
+    if (line.section === null) return 0.55
+    return line.section === activeSection ? 1 : 0.22
   }
 
   return (
     <SlideLayout background={gradients.subtle}>
       <div
         className="w-full h-full flex flex-col justify-center"
-        style={{ padding: '60px 80px' }}
+        style={{ padding: '56px 88px' }}
       >
         <motion.div variants={staggerContainer} initial="hidden" animate="visible">
-          {/* Terminal prompt — design element */}
+          {/* Terminal prompt — design element, mono accent */}
           <motion.div
             variants={terminalLine}
             style={{
               color: theme.colors.accent,
               fontSize: 'clamp(12px, 1.2vw, 15px)',
               fontFamily: theme.fonts.mono,
-              marginBottom: 16,
-              opacity: 0.8,
+              marginBottom: 14,
+              opacity: 0.85,
+              letterSpacing: '0.02em',
             }}
           >
             {'>'}_&nbsp;skill-anatomy.md
           </motion.div>
 
+          {/* Title bilingual — main heading */}
           <motion.h2
             variants={slideUp}
             style={{
-              fontSize: 'clamp(26px, 3.2vw, 40px)',
+              fontSize: 'clamp(30px, 3.6vw, 46px)',
               color: theme.colors.text,
               fontWeight: 800,
               fontFamily: theme.fonts.display,
-              letterSpacing: '-0.02em',
-              marginBottom: 8,
+              letterSpacing: '-0.025em',
+              lineHeight: 1.08,
+              marginBottom: 10,
             }}
           >
             <BiText
               vi="Cấu trúc Skill"
               kr="SKILL.md 구조"
-              krStyle={{ fontSize: '0.55em', marginTop: '0.35em', color: theme.colors.textMuted }}
+              krStyle={{
+                fontSize: '0.48em',
+                marginTop: '0.4em',
+                color: theme.colors.textMuted,
+                fontWeight: 500,
+              }}
             />
           </motion.h2>
 
+          {/* Subtitle bilingual — short descriptor */}
           <motion.p
             variants={slideUp}
             style={{
               color: theme.colors.textSecondary,
-              fontSize: 'clamp(13px, 1.4vw, 17px)',
+              fontSize: 'clamp(13px, 1.35vw, 16px)',
               fontFamily: theme.fonts.body,
-              marginBottom: 28,
+              marginBottom: 32,
+              maxWidth: 760,
             }}
           >
             <BiText
               vi="name, description (từ khóa kích hoạt), và phần hướng dẫn — chỉ là markdown thôi"
               kr="이름, 설명(트리거 키워드), 지침 섹션 — 단순한 마크다운"
-              krStyle={{ fontSize: '0.78em', marginTop: '0.3em', color: theme.colors.textMuted }}
+              krStyle={{ fontSize: '0.78em', marginTop: '0.25em', color: theme.colors.textMuted }}
             />
           </motion.p>
 
-          {/* Two-column row: code on the left, clickable anatomy cards on the right */}
-          <div style={{ display: 'flex', gap: 20, alignItems: 'stretch' }}>
-            {/* LEFT: code block */}
+          {/* Two-column row: code block (LEFT, ~60%) + clickable cards (RIGHT, ~40%) */}
+          <div style={{ display: 'flex', gap: 28, alignItems: 'stretch' }}>
+            {/* LEFT — code block */}
             <motion.div
               variants={slideUp}
               style={{
-                flex: '1 1 62%',
+                flex: '1 1 60%',
                 minWidth: 0,
                 border: `1px solid ${theme.colors.accentGlow}`,
-                borderRadius: 10,
-                padding: '18px 24px',
-                background: theme.colors.bgElev,
+                borderRadius: 12,
+                padding: '22px 28px',
+                background: `linear-gradient(180deg, ${theme.colors.bgElev} 0%, ${theme.colors.bgDeep} 100%)`,
+                boxShadow: `inset 0 1px 0 rgba(255,255,255,0.03)`,
               }}
             >
               <div
                 style={{
                   color: theme.colors.textMuted,
-                  fontSize: 'clamp(10px, 1vw, 12px)',
+                  fontSize: 'clamp(10px, 0.95vw, 12px)',
                   fontFamily: theme.fonts.mono,
-                  marginBottom: 10,
-                  letterSpacing: '0.04em',
+                  marginBottom: 12,
+                  letterSpacing: '0.06em',
+                  textTransform: 'none',
+                  opacity: 0.8,
                 }}
               >
                 skills/cook/SKILL.md
@@ -176,12 +194,13 @@ export default function Slide25SkillAnatomy() {
                   key={i}
                   style={{
                     color: lineColor(line.type),
-                    fontSize: 'clamp(11px, 1.2vw, 14px)',
-                    lineHeight: 1.75,
+                    fontSize: 'clamp(11px, 1.15vw, 14px)',
+                    lineHeight: 1.68,
                     minHeight: line.text === '' ? 10 : undefined,
                     fontFamily: theme.fonts.mono,
                     opacity: getLineOpacity(line),
-                    transition: 'opacity 280ms ease-out',
+                    transition: 'opacity 260ms ease-out',
+                    letterSpacing: '-0.005em',
                   }}
                 >
                   {line.text || '\u00A0'}
@@ -189,113 +208,163 @@ export default function Slide25SkillAnatomy() {
               ))}
             </motion.div>
 
-            {/* RIGHT: clickable anatomy cards — click to highlight corresponding code section */}
+            {/* RIGHT — clickable anatomy cards stacked vertically with stagger */}
             <motion.div
-              variants={slideUp}
+              variants={staggerContainer}
               style={{
-                flex: '1 1 38%',
+                flex: '1 1 40%',
                 minWidth: 0,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 12,
+                gap: 14,
                 justifyContent: 'center',
               }}
             >
               {cards.map((card) => {
                 const isActive = activeSection === card.section
                 return (
-                  <button
+                  <motion.button
                     key={card.section}
                     type="button"
+                    variants={slideUp}
                     onClick={() => handleCardClick(card.section)}
                     aria-pressed={isActive}
                     aria-label={`Highlight section: ${card.title.vi}`}
                     style={{
+                      position: 'relative',
                       textAlign: 'left',
-                      padding: '14px 18px',
-                      borderRadius: 10,
+                      padding: '16px 20px 16px 22px',
+                      borderRadius: 12,
                       border: isActive
                         ? `1.5px solid ${theme.colors.accent}`
                         : `1px solid ${theme.colors.border}`,
-                      background: isActive ? theme.colors.accentDim : 'transparent',
+                      background: isActive
+                        ? `linear-gradient(135deg, ${theme.colors.accentDim} 0%, rgba(255,107,53,0.04) 100%)`
+                        : 'rgba(255,255,255,0.01)',
                       boxShadow: isActive
-                        ? `0 0 18px ${theme.colors.accent}55, 0 0 36px ${theme.colors.accent}22`
-                        : 'none',
+                        ? `0 0 24px ${theme.colors.accent}44, 0 0 48px ${theme.colors.accent}22, inset 0 1px 0 rgba(255,255,255,0.04)`
+                        : `inset 0 1px 0 rgba(255,255,255,0.02)`,
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'flex-start',
-                      gap: 12,
+                      gap: 14,
+                      transform: isActive ? 'translateX(4px)' : 'translateX(0)',
                       transition:
-                        'border-color 280ms ease-out, background 280ms ease-out, box-shadow 280ms ease-out',
+                        'border-color 280ms ease-out, background 280ms ease-out, box-shadow 280ms ease-out, transform 280ms ease-out',
                       fontFamily: theme.fonts.body,
+                      overflow: 'hidden',
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
                         e.currentTarget.style.borderColor = theme.colors.accentGlow
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isActive) {
                         e.currentTarget.style.borderColor = theme.colors.border
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.01)'
                       }
                     }}
                   >
-                    {/* Bullet dot — signals "item in a list" */}
+                    {/* Active-state accent stripe on the left edge */}
                     <span
                       aria-hidden
                       style={{
-                        display: 'inline-block',
-                        width: 8,
-                        height: 8,
-                        borderRadius: '50%',
-                        background: isActive ? theme.colors.accent : theme.colors.textMuted,
-                        flexShrink: 0,
-                        marginTop: 8,
-                        boxShadow: isActive ? `0 0 8px ${theme.colors.accent}` : 'none',
+                        position: 'absolute',
+                        left: 0,
+                        top: 10,
+                        bottom: 10,
+                        width: 3,
+                        borderRadius: '0 3px 3px 0',
+                        background: isActive ? theme.colors.accent : 'transparent',
+                        boxShadow: isActive ? `0 0 12px ${theme.colors.accent}` : 'none',
                         transition: 'background 280ms ease-out, box-shadow 280ms ease-out',
                       }}
                     />
 
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      {/* Title bilingual */}
-                      <BiText
-                        vi={card.title.vi}
-                        kr={card.title.kr}
-                        viStyle={{
-                          fontFamily: theme.fonts.display,
-                          fontSize: 'clamp(14px, 1.4vw, 17px)',
-                          fontWeight: 700,
-                          color: isActive ? theme.colors.text : theme.colors.textSecondary,
-                          letterSpacing: '-0.005em',
-                          transition: 'color 280ms ease-out',
-                        }}
-                        krStyle={{
-                          fontSize: '0.72em',
-                          color: theme.colors.textMuted,
-                          marginTop: '0.15em',
-                        }}
-                      />
+                    {/* Index number prefix — mono, muted when idle, accent when active */}
+                    <span
+                      style={{
+                        fontFamily: theme.fonts.mono,
+                        fontSize: 'clamp(13px, 1.3vw, 16px)',
+                        fontWeight: 700,
+                        color: isActive ? theme.colors.accent : theme.colors.textMuted,
+                        letterSpacing: '0.04em',
+                        flexShrink: 0,
+                        paddingTop: 2,
+                        transition: 'color 280ms ease-out',
+                      }}
+                    >
+                      {card.index}
+                    </span>
 
-                      {/* Subtitle bilingual */}
-                      <div style={{ marginTop: 4 }}>
-                        <BiText
-                          vi={card.sub.vi}
-                          kr={card.sub.kr}
-                          viStyle={{
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      {/* Title row: VI main + KR tiny inline beside */}
+                      <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '0 10px' }}>
+                        <span
+                          style={{
+                            fontFamily: theme.fonts.display,
+                            fontSize: 'clamp(15px, 1.5vw, 18px)',
+                            fontWeight: 700,
+                            color: isActive ? theme.colors.text : theme.colors.textSecondary,
+                            letterSpacing: '-0.005em',
+                            transition: 'color 280ms ease-out',
+                          }}
+                        >
+                          {card.title.vi}
+                        </span>
+                        <span
+                          lang="ko"
+                          style={{
+                            fontFamily: theme.fonts.korean,
+                            fontSize: 'clamp(10px, 1vw, 12px)',
+                            color: theme.colors.textMuted,
+                            opacity: isActive ? 0.75 : 0.5,
+                            fontWeight: 500,
+                            transition: 'opacity 280ms ease-out',
+                          }}
+                        >
+                          {card.title.kr}
+                        </span>
+                      </div>
+
+                      {/* Subtitle row: VI + KR tiny inline */}
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'baseline',
+                          flexWrap: 'wrap',
+                          gap: '0 8px',
+                          marginTop: 4,
+                        }}
+                      >
+                        <span
+                          style={{
                             fontFamily: theme.fonts.mono,
                             fontSize: 'clamp(11px, 1.1vw, 13px)',
-                            color: theme.colors.textMuted,
+                            color: isActive ? theme.colors.textSecondary : theme.colors.textMuted,
+                            letterSpacing: '0.01em',
+                            transition: 'color 280ms ease-out',
                           }}
-                          krStyle={{
-                            fontSize: '0.82em',
+                        >
+                          {card.sub.vi}
+                        </span>
+                        <span
+                          lang="ko"
+                          style={{
+                            fontFamily: theme.fonts.korean,
+                            fontSize: 'clamp(9px, 0.9vw, 11px)',
                             color: theme.colors.textMuted,
-                            opacity: 0.75,
-                            marginTop: '0.15em',
+                            opacity: isActive ? 0.65 : 0.45,
+                            transition: 'opacity 280ms ease-out',
                           }}
-                        />
+                        >
+                          {card.sub.kr}
+                        </span>
                       </div>
                     </div>
-                  </button>
+                  </motion.button>
                 )
               })}
             </motion.div>
