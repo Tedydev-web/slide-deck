@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import SlideLayout from '../components/SlideLayout'
+import SlideLayout, { Attribution } from '../components/SlideLayout'
 import { BiText } from '../components/bi-text'
 import { SlideSectionLabel } from '../components/slide-section-label'
 import { theme, gradients } from '../lib/theme'
@@ -127,6 +127,7 @@ export default function Slide03EightObjections() {
           ))}
         </motion.div>
       </div>
+      <Attribution>46% DEV KHÔNG TIN AI · 66% BỰC 'GẦN ĐÚNG' — STACK OVERFLOW 2025</Attribution>
     </SlideLayout>
   )
 }

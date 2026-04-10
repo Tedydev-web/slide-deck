@@ -8,27 +8,27 @@ import { fadeUp, staggerContainer } from '../lib/animations'
 
 const timelineItems = [
   {
-    year: '2023',
-    vi: 'Tự động hoàn thành (Copilot)',
-    kr: '자동완성',
+    year: 'Feb 2025',
+    vi: 'Karpathy đặt tên "vibe coding" — cho prototype low-stakes, "accept all"',
+    kr: 'Karpathy "바이브 코딩" 명명 — 저위험 프로토타입용, "accept all"',
     highlight: false,
   },
   {
-    year: '2024',
-    vi: 'Chat-based (Cursor, ChatGPT)',
-    kr: '채팅 기반',
+    year: 'Mar 2025',
+    vi: 'Willison đính chính: AI-assisted coding ≠ vibe coding',
+    kr: 'Willison 정정: AI-assisted ≠ 바이브 코딩',
     highlight: false,
   },
   {
-    year: '2025',
-    vi: 'Vibe Coding (Karpathy) — thất bại ở scale',
-    kr: '바이브 코딩 → 규모에서 실패',
+    year: 'Late 2025',
+    vi: 'Production: fail ở architectural decisions + scale',
+    kr: '프로덕션: 아키텍처 결정과 스케일에서 실패',
     highlight: false,
   },
   {
     year: '2026',
-    vi: 'Agentic Coding — Kế hoạch → Thực thi → Review → Test → Ship',
-    kr: '에이전틱 코딩',
+    vi: 'Agentic: Plan → Execute → Verify → Ship (Anthropic 2026)',
+    kr: '에이전틱: 계획 → 실행 → 검증 → 배포',
     highlight: true,
   },
 ]
@@ -55,8 +55,8 @@ export default function Slide11VibeCodingDead() {
           style={{ marginTop: 16, marginBottom: 36 }}
         >
           <BiText
-            vi="Vibe Coding đã chết. Agentic Coding lên ngôi."
-            kr="바이브 코딩은 끝났다. 에이전틱 코딩의 시대."
+            vi="Vibe Coding: Định nghĩa đã bị hiểu sai"
+            kr="바이브 코딩: 오해된 정의"
             viStyle={{
               fontFamily: theme.fonts.display,
               fontSize: 44,
@@ -160,9 +160,9 @@ export default function Slide11VibeCodingDead() {
           custom={7}
         >
           <QuoteBlock
-            quote="Vibe coding works until architectural decisions matter."
-            quoteKr="아키텍처 결정이 중요해질 때 바이브 코딩은 작동하지 않습니다."
-            source="Hacker News, 2025"
+            quote="Not all AI coding is vibe coding. Review, test, understand — it's still engineering."
+            quoteKr="모든 AI 코딩이 바이브 코딩은 아닙니다. 검토, 테스트, 이해 — 여전히 엔지니어링입니다."
+            source="Simon Willison, 2025"
             size="small"
           />
         </motion.div>
